@@ -1,0 +1,654 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		93A3BA102548E6AF0005257A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA0F2548E6AF0005257A /* AppDelegate.swift */; };
+		93A3BA122548E6AF0005257A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA112548E6AF0005257A /* SceneDelegate.swift */; };
+		93A3BA142548E6AF0005257A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA132548E6AF0005257A /* ViewController.swift */; };
+		93A3BA172548E6AF0005257A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A3BA152548E6AF0005257A /* Main.storyboard */; };
+		93A3BA192548E6B30005257A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93A3BA182548E6B30005257A /* Assets.xcassets */; };
+		93A3BA1C2548E6B30005257A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A3BA1A2548E6B30005257A /* LaunchScreen.storyboard */; };
+		93A3BA272548E6B30005257A /* AmartPhotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA262548E6B30005257A /* AmartPhotoTests.swift */; };
+		93A3BA322548E6B40005257A /* AmartPhotoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA312548E6B40005257A /* AmartPhotoUITests.swift */; };
+		93A3BA4C2548E7460005257A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA4B2548E7460005257A /* User.swift */; };
+		93A3BA512548E79B0005257A /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA502548E79B0005257A /* Transaction.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		93A3BA232548E6B30005257A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93A3BA042548E6AF0005257A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93A3BA0B2548E6AF0005257A;
+			remoteInfo = AmartPhoto;
+		};
+		93A3BA2E2548E6B40005257A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93A3BA042548E6AF0005257A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93A3BA0B2548E6AF0005257A;
+			remoteInfo = AmartPhoto;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		93A3BA0C2548E6AF0005257A /* AmartPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmartPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A3BA0F2548E6AF0005257A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		93A3BA112548E6AF0005257A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		93A3BA132548E6AF0005257A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		93A3BA162548E6AF0005257A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		93A3BA182548E6B30005257A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		93A3BA1B2548E6B30005257A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		93A3BA1D2548E6B30005257A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93A3BA222548E6B30005257A /* AmartPhotoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmartPhotoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A3BA262548E6B30005257A /* AmartPhotoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmartPhotoTests.swift; sourceTree = "<group>"; };
+		93A3BA282548E6B30005257A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93A3BA2D2548E6B40005257A /* AmartPhotoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmartPhotoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A3BA312548E6B40005257A /* AmartPhotoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmartPhotoUITests.swift; sourceTree = "<group>"; };
+		93A3BA332548E6B40005257A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93A3BA4B2548E7460005257A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		93A3BA502548E79B0005257A /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		93A3BA092548E6AF0005257A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93A3BA1F2548E6B30005257A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93A3BA2A2548E6B40005257A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		93A3BA032548E6AF0005257A = {
+			isa = PBXGroup;
+			children = (
+				93A3BA0E2548E6AF0005257A /* AmartPhoto */,
+				93A3BA252548E6B30005257A /* AmartPhotoTests */,
+				93A3BA302548E6B40005257A /* AmartPhotoUITests */,
+				93A3BA0D2548E6AF0005257A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		93A3BA0D2548E6AF0005257A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93A3BA0C2548E6AF0005257A /* AmartPhoto.app */,
+				93A3BA222548E6B30005257A /* AmartPhotoTests.xctest */,
+				93A3BA2D2548E6B40005257A /* AmartPhotoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93A3BA0E2548E6AF0005257A /* AmartPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				93A3BA4A2548E6F40005257A /* Models */,
+				93A3BA462548E6CF0005257A /* Controllers */,
+				93A3BA492548E6EA0005257A /* Views */,
+				93A3BA422548E6C20005257A /* Resources */,
+			);
+			path = AmartPhoto;
+			sourceTree = "<group>";
+		};
+		93A3BA252548E6B30005257A /* AmartPhotoTests */ = {
+			isa = PBXGroup;
+			children = (
+				93A3BA262548E6B30005257A /* AmartPhotoTests.swift */,
+				93A3BA282548E6B30005257A /* Info.plist */,
+			);
+			path = AmartPhotoTests;
+			sourceTree = "<group>";
+		};
+		93A3BA302548E6B40005257A /* AmartPhotoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				93A3BA312548E6B40005257A /* AmartPhotoUITests.swift */,
+				93A3BA332548E6B40005257A /* Info.plist */,
+			);
+			path = AmartPhotoUITests;
+			sourceTree = "<group>";
+		};
+		93A3BA422548E6C20005257A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				93A3BA0F2548E6AF0005257A /* AppDelegate.swift */,
+				93A3BA112548E6AF0005257A /* SceneDelegate.swift */,
+				93A3BA182548E6B30005257A /* Assets.xcassets */,
+				93A3BA1A2548E6B30005257A /* LaunchScreen.storyboard */,
+				93A3BA1D2548E6B30005257A /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		93A3BA462548E6CF0005257A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				93A3BA472548E6D70005257A /* ModelControllers */,
+				93A3BA482548E6DD0005257A /* ViewControllers */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		93A3BA472548E6D70005257A /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ModelControllers;
+			sourceTree = "<group>";
+		};
+		93A3BA482548E6DD0005257A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				93A3BA132548E6AF0005257A /* ViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		93A3BA492548E6EA0005257A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				93A3BA152548E6AF0005257A /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		93A3BA4A2548E6F40005257A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				93A3BA4B2548E7460005257A /* User.swift */,
+				93A3BA502548E79B0005257A /* Transaction.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		93A3BA0B2548E6AF0005257A /* AmartPhoto */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93A3BA362548E6B40005257A /* Build configuration list for PBXNativeTarget "AmartPhoto" */;
+			buildPhases = (
+				93A3BA082548E6AF0005257A /* Sources */,
+				93A3BA092548E6AF0005257A /* Frameworks */,
+				93A3BA0A2548E6AF0005257A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AmartPhoto;
+			productName = AmartPhoto;
+			productReference = 93A3BA0C2548E6AF0005257A /* AmartPhoto.app */;
+			productType = "com.apple.product-type.application";
+		};
+		93A3BA212548E6B30005257A /* AmartPhotoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93A3BA392548E6B40005257A /* Build configuration list for PBXNativeTarget "AmartPhotoTests" */;
+			buildPhases = (
+				93A3BA1E2548E6B30005257A /* Sources */,
+				93A3BA1F2548E6B30005257A /* Frameworks */,
+				93A3BA202548E6B30005257A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93A3BA242548E6B30005257A /* PBXTargetDependency */,
+			);
+			name = AmartPhotoTests;
+			productName = AmartPhotoTests;
+			productReference = 93A3BA222548E6B30005257A /* AmartPhotoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		93A3BA2C2548E6B40005257A /* AmartPhotoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93A3BA3C2548E6B40005257A /* Build configuration list for PBXNativeTarget "AmartPhotoUITests" */;
+			buildPhases = (
+				93A3BA292548E6B40005257A /* Sources */,
+				93A3BA2A2548E6B40005257A /* Frameworks */,
+				93A3BA2B2548E6B40005257A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93A3BA2F2548E6B40005257A /* PBXTargetDependency */,
+			);
+			name = AmartPhotoUITests;
+			productName = AmartPhotoUITests;
+			productReference = 93A3BA2D2548E6B40005257A /* AmartPhotoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		93A3BA042548E6AF0005257A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					93A3BA0B2548E6AF0005257A = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					93A3BA212548E6B30005257A = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 93A3BA0B2548E6AF0005257A;
+					};
+					93A3BA2C2548E6B40005257A = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 93A3BA0B2548E6AF0005257A;
+					};
+				};
+			};
+			buildConfigurationList = 93A3BA072548E6AF0005257A /* Build configuration list for PBXProject "AmartPhoto" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 93A3BA032548E6AF0005257A;
+			productRefGroup = 93A3BA0D2548E6AF0005257A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93A3BA0B2548E6AF0005257A /* AmartPhoto */,
+				93A3BA212548E6B30005257A /* AmartPhotoTests */,
+				93A3BA2C2548E6B40005257A /* AmartPhotoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		93A3BA0A2548E6AF0005257A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93A3BA1C2548E6B30005257A /* LaunchScreen.storyboard in Resources */,
+				93A3BA192548E6B30005257A /* Assets.xcassets in Resources */,
+				93A3BA172548E6AF0005257A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93A3BA202548E6B30005257A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93A3BA2B2548E6B40005257A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93A3BA082548E6AF0005257A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93A3BA4C2548E7460005257A /* User.swift in Sources */,
+				93A3BA142548E6AF0005257A /* ViewController.swift in Sources */,
+				93A3BA102548E6AF0005257A /* AppDelegate.swift in Sources */,
+				93A3BA122548E6AF0005257A /* SceneDelegate.swift in Sources */,
+				93A3BA512548E79B0005257A /* Transaction.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93A3BA1E2548E6B30005257A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93A3BA272548E6B30005257A /* AmartPhotoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93A3BA292548E6B40005257A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93A3BA322548E6B40005257A /* AmartPhotoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		93A3BA242548E6B30005257A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93A3BA0B2548E6AF0005257A /* AmartPhoto */;
+			targetProxy = 93A3BA232548E6B30005257A /* PBXContainerItemProxy */;
+		};
+		93A3BA2F2548E6B40005257A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93A3BA0B2548E6AF0005257A /* AmartPhoto */;
+			targetProxy = 93A3BA2E2548E6B40005257A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		93A3BA152548E6AF0005257A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93A3BA162548E6AF0005257A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		93A3BA1A2548E6B30005257A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93A3BA1B2548E6B30005257A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		93A3BA342548E6B40005257A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		93A3BA352548E6B40005257A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		93A3BA372548E6B40005257A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CYXP9477KA;
+				INFOPLIST_FILE = AmartPhoto/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bryanworkman.AmartPhoto;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		93A3BA382548E6B40005257A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CYXP9477KA;
+				INFOPLIST_FILE = AmartPhoto/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bryanworkman.AmartPhoto;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		93A3BA3A2548E6B40005257A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CYXP9477KA;
+				INFOPLIST_FILE = AmartPhotoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bryanworkman.AmartPhotoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AmartPhoto.app/AmartPhoto";
+			};
+			name = Debug;
+		};
+		93A3BA3B2548E6B40005257A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CYXP9477KA;
+				INFOPLIST_FILE = AmartPhotoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bryanworkman.AmartPhotoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AmartPhoto.app/AmartPhoto";
+			};
+			name = Release;
+		};
+		93A3BA3D2548E6B40005257A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CYXP9477KA;
+				INFOPLIST_FILE = AmartPhotoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bryanworkman.AmartPhotoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AmartPhoto;
+			};
+			name = Debug;
+		};
+		93A3BA3E2548E6B40005257A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CYXP9477KA;
+				INFOPLIST_FILE = AmartPhotoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bryanworkman.AmartPhotoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AmartPhoto;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		93A3BA072548E6AF0005257A /* Build configuration list for PBXProject "AmartPhoto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93A3BA342548E6B40005257A /* Debug */,
+				93A3BA352548E6B40005257A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93A3BA362548E6B40005257A /* Build configuration list for PBXNativeTarget "AmartPhoto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93A3BA372548E6B40005257A /* Debug */,
+				93A3BA382548E6B40005257A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93A3BA392548E6B40005257A /* Build configuration list for PBXNativeTarget "AmartPhotoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93A3BA3A2548E6B40005257A /* Debug */,
+				93A3BA3B2548E6B40005257A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93A3BA3C2548E6B40005257A /* Build configuration list for PBXNativeTarget "AmartPhotoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93A3BA3D2548E6B40005257A /* Debug */,
+				93A3BA3E2548E6B40005257A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 93A3BA042548E6AF0005257A /* Project object */;
+}
