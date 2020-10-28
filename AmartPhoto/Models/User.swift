@@ -16,7 +16,7 @@ class User {
     var phoneNumber: String
     var role: Role
     var transactions: [Transaction]
-//    fileprivate var imageName: String
+    fileprivate var imageName: String
     var image: UIImage?
     var brokerImage: UIImage?
 //    fileprivate var brokerImageName: String
