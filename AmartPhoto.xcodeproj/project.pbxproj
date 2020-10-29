@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9320AA83254B580000FA2E57 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320AA82254B580000FA2E57 /* ProjectsViewController.swift */; };
+		9320AA89254B586800FA2E57 /* ProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320AA88254B586800FA2E57 /* ProjectsTableViewCell.swift */; };
 		93A3BA102548E6AF0005257A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA0F2548E6AF0005257A /* AppDelegate.swift */; };
 		93A3BA122548E6AF0005257A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA112548E6AF0005257A /* SceneDelegate.swift */; };
-		93A3BA142548E6AF0005257A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA132548E6AF0005257A /* ViewController.swift */; };
 		93A3BA172548E6AF0005257A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A3BA152548E6AF0005257A /* Main.storyboard */; };
 		93A3BA192548E6B30005257A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93A3BA182548E6B30005257A /* Assets.xcassets */; };
 		93A3BA1C2548E6B30005257A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A3BA1A2548E6B30005257A /* LaunchScreen.storyboard */; };
@@ -37,10 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9320AA82254B580000FA2E57 /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
+		9320AA88254B586800FA2E57 /* ProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewCell.swift; sourceTree = "<group>"; };
 		93A3BA0C2548E6AF0005257A /* AmartPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmartPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A3BA0F2548E6AF0005257A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93A3BA112548E6AF0005257A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		93A3BA132548E6AF0005257A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		93A3BA162548E6AF0005257A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93A3BA182548E6B30005257A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93A3BA1B2548E6B30005257A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9320AA87254B585100FA2E57 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				9320AA88254B586800FA2E57 /* ProjectsTableViewCell.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		93A3BA032548E6AF0005257A = {
 			isa = PBXGroup;
 			children = (
@@ -160,7 +170,7 @@
 		93A3BA482548E6DD0005257A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				93A3BA132548E6AF0005257A /* ViewController.swift */,
+				9320AA82254B580000FA2E57 /* ProjectsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -168,6 +178,7 @@
 		93A3BA492548E6EA0005257A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9320AA87254B585100FA2E57 /* CustomViews */,
 				93A3BA152548E6AF0005257A /* Main.storyboard */,
 			);
 			path = Views;
@@ -313,7 +324,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				93A3BA4C2548E7460005257A /* User.swift in Sources */,
-				93A3BA142548E6AF0005257A /* ViewController.swift in Sources */,
+				9320AA89254B586800FA2E57 /* ProjectsTableViewCell.swift in Sources */,
+				9320AA83254B580000FA2E57 /* ProjectsViewController.swift in Sources */,
 				93A3BA102548E6AF0005257A /* AppDelegate.swift in Sources */,
 				93A3BA122548E6AF0005257A /* SceneDelegate.swift in Sources */,
 				93A3BA512548E79B0005257A /* Transaction.swift in Sources */,
