@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9320AA83254B580000FA2E57 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320AA82254B580000FA2E57 /* ProjectsViewController.swift */; };
 		9320AA89254B586800FA2E57 /* ProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320AA88254B586800FA2E57 /* ProjectsTableViewCell.swift */; };
+		9320AA91254B691C00FA2E57 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320AA90254B691C00FA2E57 /* ProfileViewController.swift */; };
+		9320AA96254B6C4500FA2E57 /* CompletedProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320AA95254B6C4500FA2E57 /* CompletedProjectsTableViewCell.swift */; };
+		9320AA9B254BCF4B00FA2E57 /* ProjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320AA9A254BCF4A00FA2E57 /* ProjectDetailViewController.swift */; };
+		9320AAA0254CC25500FA2E57 /* CreateTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320AA9F254CC25500FA2E57 /* CreateTransactionViewController.swift */; };
 		93A3BA102548E6AF0005257A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA0F2548E6AF0005257A /* AppDelegate.swift */; };
 		93A3BA122548E6AF0005257A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA112548E6AF0005257A /* SceneDelegate.swift */; };
 		93A3BA172548E6AF0005257A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A3BA152548E6AF0005257A /* Main.storyboard */; };
@@ -40,6 +44,10 @@
 /* Begin PBXFileReference section */
 		9320AA82254B580000FA2E57 /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
 		9320AA88254B586800FA2E57 /* ProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewCell.swift; sourceTree = "<group>"; };
+		9320AA90254B691C00FA2E57 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9320AA95254B6C4500FA2E57 /* CompletedProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedProjectsTableViewCell.swift; sourceTree = "<group>"; };
+		9320AA9A254BCF4A00FA2E57 /* ProjectDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailViewController.swift; sourceTree = "<group>"; };
+		9320AA9F254CC25500FA2E57 /* CreateTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTransactionViewController.swift; sourceTree = "<group>"; };
 		93A3BA0C2548E6AF0005257A /* AmartPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmartPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A3BA0F2548E6AF0005257A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93A3BA112548E6AF0005257A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				9320AA88254B586800FA2E57 /* ProjectsTableViewCell.swift */,
+				9320AA95254B6C4500FA2E57 /* CompletedProjectsTableViewCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -171,6 +180,9 @@
 			isa = PBXGroup;
 			children = (
 				9320AA82254B580000FA2E57 /* ProjectsViewController.swift */,
+				9320AA90254B691C00FA2E57 /* ProfileViewController.swift */,
+				9320AA9A254BCF4A00FA2E57 /* ProjectDetailViewController.swift */,
+				9320AA9F254CC25500FA2E57 /* CreateTransactionViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -324,10 +336,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				93A3BA4C2548E7460005257A /* User.swift in Sources */,
+				9320AA96254B6C4500FA2E57 /* CompletedProjectsTableViewCell.swift in Sources */,
 				9320AA89254B586800FA2E57 /* ProjectsTableViewCell.swift in Sources */,
 				9320AA83254B580000FA2E57 /* ProjectsViewController.swift in Sources */,
 				93A3BA102548E6AF0005257A /* AppDelegate.swift in Sources */,
+				9320AA91254B691C00FA2E57 /* ProfileViewController.swift in Sources */,
 				93A3BA122548E6AF0005257A /* SceneDelegate.swift in Sources */,
+				9320AAA0254CC25500FA2E57 /* CreateTransactionViewController.swift in Sources */,
+				9320AA9B254BCF4B00FA2E57 /* ProjectDetailViewController.swift in Sources */,
 				93A3BA512548E79B0005257A /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
