@@ -7,9 +7,11 @@
 
 import UIKit
 
-class CreateTransactionContinuedViewController: UIViewController {
+class CreateTransactionContinuedViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     //MARK: - Outlets
+    @IBOutlet weak var packageCollectionView: UICollectionView!
+    @IBOutlet weak var addOnCollectionView: UICollectionView!
     @IBOutlet weak var notesTextView: UITextView!
     
     //MARK: - Properties
@@ -19,6 +21,10 @@ class CreateTransactionContinuedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTextView()
+        packageCollectionView.delegate = self
+        packageCollectionView.dataSource = self
+        addOnCollectionView.delegate = self
+        addOnCollectionView.dataSource = self
     }
     
     //MARK: - Actions
@@ -55,6 +61,29 @@ class CreateTransactionContinuedViewController: UIViewController {
     
     @objc func keyboardWillHide(notification: NSNotification) {
         self.view.frame.origin.y = 0
+    }
+    
+    //MARK: - Collection View Data Source
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        var count = 0
+        if collectionView == packageCollectionView {
+            count = 2
+        } else if collectionView == addOnCollectionView {
+            count = 2
+        }
+        return count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var reuseIdentifier = ""
+        if collectionView == packageCollectionView {
+            reuseIdentifier = "packageCell"
+        } else if collectionView == addOnCollectionView {
+            reuseIdentifier = "addOnCell"
+        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        
+        return cell
     }
 
     /*
