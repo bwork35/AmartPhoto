@@ -23,6 +23,8 @@
 		93A3BA322548E6B40005257A /* AmartPhotoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA312548E6B40005257A /* AmartPhotoUITests.swift */; };
 		93A3BA4C2548E7460005257A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA4B2548E7460005257A /* User.swift */; };
 		93A3BA512548E79B0005257A /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA502548E79B0005257A /* Transaction.swift */; };
+		93C795192552345E0014DFD0 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C795182552345E0014DFD0 /* UserController.swift */; };
+		93C7951E2552346C0014DFD0 /* TransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C7951D2552346C0014DFD0 /* TransactionController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		93A3BA332548E6B40005257A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93A3BA4B2548E7460005257A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		93A3BA502548E79B0005257A /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		93C795182552345E0014DFD0 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		93C7951D2552346C0014DFD0 /* TransactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +178,8 @@
 		93A3BA472548E6D70005257A /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
+				93C795182552345E0014DFD0 /* UserController.swift */,
+				93C7951D2552346C0014DFD0 /* TransactionController.swift */,
 			);
 			name = ModelControllers;
 			sourceTree = "<group>";
@@ -344,6 +350,8 @@
 				9320AA89254B586800FA2E57 /* ProjectsTableViewCell.swift in Sources */,
 				9320AA83254B580000FA2E57 /* ProjectsViewController.swift in Sources */,
 				93A3BA102548E6AF0005257A /* AppDelegate.swift in Sources */,
+				93C7951E2552346C0014DFD0 /* TransactionController.swift in Sources */,
+				93C795192552345E0014DFD0 /* UserController.swift in Sources */,
 				9320AA91254B691C00FA2E57 /* ProfileViewController.swift in Sources */,
 				93A3BA122548E6AF0005257A /* SceneDelegate.swift in Sources */,
 				9320AAA0254CC25500FA2E57 /* CreateTransactionViewController.swift in Sources */,
