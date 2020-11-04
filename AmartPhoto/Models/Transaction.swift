@@ -52,3 +52,9 @@ class Transaction {
     }
     
 } //End of class
+
+extension Transaction: Equatable {
+    static func == (lhs: Transaction, rhs: Transaction) -> Bool {
+        return lhs.id == rhs.id && lhs.status == rhs.status && lhs.address == rhs.address && lhs.city == rhs.city && lhs.state == rhs.state && lhs.zip == rhs.zip && lhs.sqFeet == rhs.sqFeet && lhs.dateOne == rhs.dateOne && lhs.timeOne == rhs.timeOne && lhs.dateTwo == rhs.dateTwo && lhs.timeTwo == rhs.timeTwo && lhs.notes == rhs.notes && lhs.isVacant == rhs.isVacant && lhs.homeOwnerPhone == rhs.homeOwnerPhone
+    }
+}

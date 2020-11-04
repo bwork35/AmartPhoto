@@ -31,7 +31,6 @@ class CreateTransactionContinuedViewController: UIViewController, UICollectionVi
     @IBAction func submitButtonTapped(_ sender: Any) {
     }
     
-    
     //MARK: - Helper Methods
     func setUpTextView() {
         notesTextView.delegate = self
