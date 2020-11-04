@@ -22,6 +22,11 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
+    }
+    
     //MARK: - Helper Methods
 
     
