@@ -15,7 +15,7 @@ class CreateTransactionContinuedViewController: UIViewController, UICollectionVi
     @IBOutlet weak var notesTextView: UITextView!
     
     //MARK: - Properties
-
+    
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
@@ -29,6 +29,10 @@ class CreateTransactionContinuedViewController: UIViewController, UICollectionVi
     
     //MARK: - Actions
     @IBAction func submitButtonTapped(_ sender: Any) {
+        if let notes = notesTextView.text {
+            TransactionController.shared.transactions.last?.notes = notes
+        }
+        navigationController?.popToRootViewController(animated: true)
     }
     
     //MARK: - Helper Methods

@@ -15,7 +15,7 @@ class ProjectsTableViewCell: UITableViewCell {
     @IBOutlet weak var statusLabel: UILabel!
     
     //MARK: - Properties
-    var myString: String? {
+    var transaction: Transaction? {
         didSet {
             updateViews()
         }
@@ -23,8 +23,10 @@ class ProjectsTableViewCell: UITableViewCell {
     
     //MARK: - Helper Methods
     func updateViews() {
-        guard let myString = myString else {return}
-        addressLabel.text = myString
+        guard let transaction = transaction else {return}
+        addressLabel.text = transaction.address
+        cityLabel.text = transaction.city
+        statusLabel.text = "Status: \(transaction.status)"
     }
 
 } //End of class

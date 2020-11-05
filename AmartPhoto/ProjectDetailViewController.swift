@@ -20,15 +20,30 @@ class ProjectDetailViewController: UIViewController {
     @IBOutlet weak var notesLabel: UILabel!
     
     //MARK: - Properties
-    
+    var transaction: Transaction?
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
     }
     
     //MARK: - Helper Methods
-    
+    func updateViews() {
+        guard let transaction = transaction else {return}
+        addressLabel.text = "\(transaction.address) \(transaction.city), \(transaction.state)"
+        squareFeetLabel.text = transaction.sqFeet
+        if transaction.isVacant == false {
+            vacantLabel.text = "No"
+        } else {
+            vacantLabel.text = "Yes"
+        }
+        phoneNumberLabel.text = transaction.homeOwnerPhone
+        primaryDateLabel.text = "\(transaction.dateOne), \(transaction.timeOne)"
+        secondaryDateLabel.text = "\(transaction.dateTwo), \(transaction.timeTwo)"
+        //projectDetails
+        notesLabel.text = transaction.notes
+    }
 
     /*
     // MARK: - Navigation
