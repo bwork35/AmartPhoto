@@ -463,7 +463,7 @@
                         <outlet property="addressLabel" destination="Xps-Jy-QXp" id="41d-4n-61z"/>
                         <outlet property="notesLabel" destination="9zz-FG-e6G" id="N8t-CI-bZP"/>
                         <outlet property="phoneNumberLabel" destination="wka-CN-8FR" id="gB9-H2-3pt"/>
-                        <outlet property="primaryDateLabel" destination="B0r-JD-Vpy" id="cU8-fQ-KI2"/>
+                        <outlet property="primaryDateLabel" destination="hJA-L9-cak" id="9uK-xl-Xdf"/>
                         <outlet property="projectDetailsLabel" destination="kPW-dd-1h5" id="gbV-IA-JTb"/>
                         <outlet property="secondaryDateLabel" destination="B0r-JD-Vpy" id="uVw-fe-g9H"/>
                         <outlet property="squareFeetLabel" destination="qwN-7c-Ps6" id="ir5-MW-XKK"/>
@@ -540,7 +540,7 @@
                                             <outlet property="addressLabel" destination="fv9-SV-NJI" id="ucA-oo-81q"/>
                                             <outlet property="cityLabel" destination="FV4-eJ-kfV" id="jm2-8y-PBH"/>
                                             <outlet property="statusLabel" destination="yUm-Ve-tGK" id="kTM-rF-NqE"/>
-                                            <segue destination="qg3-Pd-ZYz" kind="show" id="wdp-si-bCE"/>
+                                            <segue destination="qg3-Pd-ZYz" kind="show" identifier="ProjectListToDetailVC" id="wdp-si-bCE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -726,7 +726,7 @@
                                                 <state key="normal" title="Continue"/>
                                                 <connections>
                                                     <action selector="continueButtonTapped:" destination="N0k-uG-aNP" eventType="touchUpInside" id="NiR-4i-zar"/>
-                                                    <segue destination="fVm-ce-gti" kind="show" id="J50-iq-VQB"/>
+                                                    <segue destination="fVm-ce-gti" kind="show" identifier="CreateToCreate2" id="J50-iq-VQB"/>
                                                 </connections>
                                             </button>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tU8-Um-ybK">

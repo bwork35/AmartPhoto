@@ -12,7 +12,9 @@ class TransactionController {
     //MARK: - Properties
     static let shared = TransactionController()
     
-    var transactions: [Transaction] = []
+    var transactions: [Transaction] = {
+        return [Transaction(id: 0, status: .pending, address: "711 Pennwood Dr.", city: "McDonald", state: "PA", zip: "15057", sqFeet: "1234", dateOne: "Nov 15", timeOne: .morning, dateTwo: "Nov 16", timeTwo: .afternoon, notes: "the quick brown fox...", isVacant: true, homeOwnerPhone: "724-746-8859")]
+    }()
     
     //MARK: - CRUD
     //Create
