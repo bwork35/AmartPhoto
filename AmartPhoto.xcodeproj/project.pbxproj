@@ -25,6 +25,10 @@
 		93A3BA512548E79B0005257A /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA502548E79B0005257A /* Transaction.swift */; };
 		93C795192552345E0014DFD0 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C795182552345E0014DFD0 /* UserController.swift */; };
 		93C7951E2552346C0014DFD0 /* TransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C7951D2552346C0014DFD0 /* TransactionController.swift */; };
+		93C79538255355930014DFD0 /* Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C79537255355930014DFD0 /* Packages.swift */; };
+		93C7953D255355E90014DFD0 /* AddOns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C7953C255355E90014DFD0 /* AddOns.swift */; };
+		93C7954225535DC40014DFD0 /* PackageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C7954125535DC40014DFD0 /* PackageCollectionViewCell.swift */; };
+		93C7954725535DD40014DFD0 /* AddOnCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C7954625535DD40014DFD0 /* AddOnCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +73,10 @@
 		93A3BA502548E79B0005257A /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		93C795182552345E0014DFD0 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		93C7951D2552346C0014DFD0 /* TransactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionController.swift; sourceTree = "<group>"; };
+		93C79537255355930014DFD0 /* Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Packages.swift; sourceTree = "<group>"; };
+		93C7953C255355E90014DFD0 /* AddOns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOns.swift; sourceTree = "<group>"; };
+		93C7954125535DC40014DFD0 /* PackageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCollectionViewCell.swift; sourceTree = "<group>"; };
+		93C7954625535DD40014DFD0 /* AddOnCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOnCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,8 @@
 			children = (
 				9320AA88254B586800FA2E57 /* ProjectsTableViewCell.swift */,
 				9320AA95254B6C4500FA2E57 /* CompletedProjectsTableViewCell.swift */,
+				93C7954125535DC40014DFD0 /* PackageCollectionViewCell.swift */,
+				93C7954625535DD40014DFD0 /* AddOnCollectionViewCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -210,6 +220,8 @@
 			children = (
 				93A3BA4B2548E7460005257A /* User.swift */,
 				93A3BA502548E79B0005257A /* Transaction.swift */,
+				93C79537255355930014DFD0 /* Packages.swift */,
+				93C7953C255355E90014DFD0 /* AddOns.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -352,10 +364,14 @@
 				93A3BA102548E6AF0005257A /* AppDelegate.swift in Sources */,
 				93C7951E2552346C0014DFD0 /* TransactionController.swift in Sources */,
 				93C795192552345E0014DFD0 /* UserController.swift in Sources */,
+				93C79538255355930014DFD0 /* Packages.swift in Sources */,
 				9320AA91254B691C00FA2E57 /* ProfileViewController.swift in Sources */,
 				93A3BA122548E6AF0005257A /* SceneDelegate.swift in Sources */,
 				9320AAA0254CC25500FA2E57 /* CreateTransactionViewController.swift in Sources */,
+				93C7953D255355E90014DFD0 /* AddOns.swift in Sources */,
+				93C7954225535DC40014DFD0 /* PackageCollectionViewCell.swift in Sources */,
 				9320AA9B254BCF4B00FA2E57 /* ProjectDetailViewController.swift in Sources */,
+				93C7954725535DD40014DFD0 /* AddOnCollectionViewCell.swift in Sources */,
 				93A3BA512548E79B0005257A /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

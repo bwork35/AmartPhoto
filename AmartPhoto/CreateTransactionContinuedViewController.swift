@@ -66,21 +66,26 @@ class CreateTransactionContinuedViewController: UIViewController, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var count = 0
         if collectionView == packageCollectionView {
-            count = 2
+            count = packageList.count
         } else if collectionView == addOnCollectionView {
-            count = 2
+            count = addOnList.count
         }
         return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var reuseIdentifier = ""
+        var cell = UICollectionViewCell()
         if collectionView == packageCollectionView {
-            reuseIdentifier = "packageCell"
+            guard let packageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "packageCell", for: indexPath) as? PackageCollectionViewCell else {return UICollectionViewCell()}
+            cell = packageCell
+            let package = packageList[indexPath.row]
+            packageCell.package = package
         } else if collectionView == addOnCollectionView {
-            reuseIdentifier = "addOnCell"
+            guard let addOnCell = collectionView.dequeueReusableCell(withReuseIdentifier: "addOnCell", for: indexPath) as? AddOnCollectionViewCell else {return UICollectionViewCell()}
+            cell = addOnCell
+            let addOn = addOnList[indexPath.row]
+            addOnCell.addOn = addOn
         }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         
         return cell
     }
