@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var numProjectsCompletedLabel: UILabel!
     
     //MARK: - Properties
+    var user: User?
     var myArray = ["198 Apple Road", "400 Blueberry Lane", "225 Cherry Street"]
     
     //MARK: - Lifecycles
@@ -25,6 +26,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        updateViews()
     }
     
     //MARK: - Actions
@@ -32,7 +34,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     //MARK: - Helper Methods
-    
+    func updateViews() {
+        guard let user = UserController.shared.currentUser else {return}
+        nameLabel.text = "\(user.firstName) \(user.lastName)"
+        brokerageLabel.text = user.brokerage
+        if let profile = user.image {
+            profileImage.image = profile
+        }
+        
+    }
 
     //MARK: - Table View Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

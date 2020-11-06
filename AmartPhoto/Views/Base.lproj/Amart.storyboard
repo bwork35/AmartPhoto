@@ -716,9 +716,9 @@
                                                     <constraint firstAttribute="height" constant="31" id="fV2-Qg-Bkf"/>
                                                 </constraints>
                                             </datePicker>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvZ-g4-A87">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvZ-g4-A87" customClass="AmartButton" customModule="AmartPhoto" customModuleProvider="target">
                                                 <rect key="frame" x="41.5" y="781" width="331" height="50"/>
-                                                <color key="backgroundColor" red="0.67493374219191327" green="0.82516398928033485" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.63829082250000002" green="0.82843667269999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="bMz-3Y-Anm"/>
                                                 </constraints>
@@ -892,7 +892,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLq-0u-Qop">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLq-0u-Qop" customClass="AmartButton" customModule="AmartPhoto" customModuleProvider="target">
                                                 <rect key="frame" x="41.5" y="564" width="331" height="50"/>
                                                 <color key="backgroundColor" red="0.63829082250000002" green="0.82843667269999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
