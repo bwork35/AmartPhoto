@@ -16,7 +16,7 @@
 		9320AAA5254F8EDB00FA2E57 /* CreateTransactionContinuedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320AAA4254F8EDA00FA2E57 /* CreateTransactionContinuedViewController.swift */; };
 		93A3BA102548E6AF0005257A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA0F2548E6AF0005257A /* AppDelegate.swift */; };
 		93A3BA122548E6AF0005257A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA112548E6AF0005257A /* SceneDelegate.swift */; };
-		93A3BA172548E6AF0005257A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A3BA152548E6AF0005257A /* Main.storyboard */; };
+		93A3BA172548E6AF0005257A /* Amart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A3BA152548E6AF0005257A /* Amart.storyboard */; };
 		93A3BA192548E6B30005257A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93A3BA182548E6B30005257A /* Assets.xcassets */; };
 		93A3BA1C2548E6B30005257A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A3BA1A2548E6B30005257A /* LaunchScreen.storyboard */; };
 		93A3BA272548E6B30005257A /* AmartPhotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA262548E6B30005257A /* AmartPhotoTests.swift */; };
@@ -30,6 +30,11 @@
 		93C7954225535DC40014DFD0 /* PackageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C7954125535DC40014DFD0 /* PackageCollectionViewCell.swift */; };
 		93C7954725535DD40014DFD0 /* AddOnCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C7954625535DD40014DFD0 /* AddOnCollectionViewCell.swift */; };
 		93C79556255386790014DFD0 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C79555255386780014DFD0 /* DateExtension.swift */; };
+		93C795652554B7610014DFD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93C795642554B7600014DFD0 /* Main.storyboard */; };
+		93C7956F255504BD0014DFD0 /* AmartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C7956E255504BC0014DFD0 /* AmartButton.swift */; };
+		93C79577255505940014DFD0 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C79576255505940014DFD0 /* LogInViewController.swift */; };
+		93C7957F2555067D0014DFD0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C7957E2555067D0014DFD0 /* SignUpViewController.swift */; };
+		93C795842555068C0014DFD0 /* SignUpContinuedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C795832555068C0014DFD0 /* SignUpContinuedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +65,7 @@
 		93A3BA0C2548E6AF0005257A /* AmartPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmartPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A3BA0F2548E6AF0005257A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93A3BA112548E6AF0005257A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		93A3BA162548E6AF0005257A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		93A3BA162548E6AF0005257A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Amart.storyboard; sourceTree = "<group>"; };
 		93A3BA182548E6B30005257A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93A3BA1B2548E6B30005257A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93A3BA1D2548E6B30005257A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +84,11 @@
 		93C7954125535DC40014DFD0 /* PackageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCollectionViewCell.swift; sourceTree = "<group>"; };
 		93C7954625535DD40014DFD0 /* AddOnCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOnCollectionViewCell.swift; sourceTree = "<group>"; };
 		93C79555255386780014DFD0 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		93C795642554B7600014DFD0 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		93C7956E255504BC0014DFD0 /* AmartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmartButton.swift; sourceTree = "<group>"; };
+		93C79576255505940014DFD0 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		93C7957E2555067D0014DFD0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		93C795832555068C0014DFD0 /* SignUpContinuedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContinuedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +215,9 @@
 				9320AA9A254BCF4A00FA2E57 /* ProjectDetailViewController.swift */,
 				9320AA9F254CC25500FA2E57 /* CreateTransactionViewController.swift */,
 				9320AAA4254F8EDA00FA2E57 /* CreateTransactionContinuedViewController.swift */,
+				93C79576255505940014DFD0 /* LogInViewController.swift */,
+				93C7957E2555067D0014DFD0 /* SignUpViewController.swift */,
+				93C795832555068C0014DFD0 /* SignUpContinuedViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -212,8 +225,10 @@
 		93A3BA492548E6EA0005257A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				93C7956C255504250014DFD0 /* CustomUI */,
 				9320AA87254B585100FA2E57 /* CustomViews */,
-				93A3BA152548E6AF0005257A /* Main.storyboard */,
+				93C795642554B7600014DFD0 /* Main.storyboard */,
+				93A3BA152548E6AF0005257A /* Amart.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,6 +250,22 @@
 				93C79555255386780014DFD0 /* DateExtension.swift */,
 			);
 			path = "Helpers + Extensions";
+			sourceTree = "<group>";
+		};
+		93C7956C255504250014DFD0 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				93C7956D2555046E0014DFD0 /* CustomButtons */,
+			);
+			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		93C7956D2555046E0014DFD0 /* CustomButtons */ = {
+			isa = PBXGroup;
+			children = (
+				93C7956E255504BC0014DFD0 /* AmartButton.swift */,
+			);
+			path = CustomButtons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,9 +371,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93C795652554B7610014DFD0 /* Main.storyboard in Resources */,
 				93A3BA1C2548E6B30005257A /* LaunchScreen.storyboard in Resources */,
 				93A3BA192548E6B30005257A /* Assets.xcassets in Resources */,
-				93A3BA172548E6AF0005257A /* Main.storyboard in Resources */,
+				93A3BA172548E6AF0005257A /* Amart.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,18 +405,22 @@
 				9320AA89254B586800FA2E57 /* ProjectsTableViewCell.swift in Sources */,
 				9320AA83254B580000FA2E57 /* ProjectsViewController.swift in Sources */,
 				93A3BA102548E6AF0005257A /* AppDelegate.swift in Sources */,
+				93C795842555068C0014DFD0 /* SignUpContinuedViewController.swift in Sources */,
 				93C7951E2552346C0014DFD0 /* TransactionController.swift in Sources */,
 				93C795192552345E0014DFD0 /* UserController.swift in Sources */,
+				93C79577255505940014DFD0 /* LogInViewController.swift in Sources */,
 				93C79538255355930014DFD0 /* Packages.swift in Sources */,
 				9320AA91254B691C00FA2E57 /* ProfileViewController.swift in Sources */,
 				93A3BA122548E6AF0005257A /* SceneDelegate.swift in Sources */,
 				9320AAA0254CC25500FA2E57 /* CreateTransactionViewController.swift in Sources */,
 				93C7953D255355E90014DFD0 /* AddOns.swift in Sources */,
 				93C79556255386790014DFD0 /* DateExtension.swift in Sources */,
+				93C7957F2555067D0014DFD0 /* SignUpViewController.swift in Sources */,
 				93C7954225535DC40014DFD0 /* PackageCollectionViewCell.swift in Sources */,
 				9320AA9B254BCF4B00FA2E57 /* ProjectDetailViewController.swift in Sources */,
 				93C7954725535DD40014DFD0 /* AddOnCollectionViewCell.swift in Sources */,
 				93A3BA512548E79B0005257A /* Transaction.swift in Sources */,
+				93C7956F255504BD0014DFD0 /* AmartButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,12 +456,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		93A3BA152548E6AF0005257A /* Main.storyboard */ = {
+		93A3BA152548E6AF0005257A /* Amart.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				93A3BA162548E6AF0005257A /* Base */,
 			);
-			name = Main.storyboard;
+			name = Amart.storyboard;
 			sourceTree = "<group>";
 		};
 		93A3BA1A2548E6B30005257A /* LaunchScreen.storyboard */ = {
