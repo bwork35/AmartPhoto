@@ -15,7 +15,17 @@ class CreateTransactionContinuedViewController: UIViewController, UICollectionVi
     @IBOutlet weak var notesTextView: UITextView!
     
     //MARK: - Properties
-    
+    var address: String?
+    var city: String?
+    var state: String?
+    var zipcode: String?
+    var sqft: String?
+    var phoneNumber: String?
+    var homeIsVacant: Bool?
+    var dateOne: String?
+    var timeOne: Transaction.TimeOfDay?
+    var dateTwo: String?
+    var timeTwo: Transaction.TimeOfDay?
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
@@ -29,9 +39,25 @@ class CreateTransactionContinuedViewController: UIViewController, UICollectionVi
     
     //MARK: - Actions
     @IBAction func submitButtonTapped(_ sender: Any) {
-        if let notes = notesTextView.text {
-            TransactionController.shared.transactions.last?.notes = notes
+        guard let address = address else {return}
+        guard let city = city else {return}
+        guard let state = state else {return}
+        guard let zipcode = zipcode else {return}
+        guard let sqft = sqft else {return}
+        guard let phoneNumber = phoneNumber else {return}
+        guard let homeIsVacant = homeIsVacant else {return}
+        guard let dateOne = dateOne else {return}
+        guard let timeOne = timeOne else {return}
+        guard let dateTwo = dateTwo else {return}
+        guard let timeTwo = timeTwo else {return}
+        let package = ""
+        let addOns = [""]
+        var notes = ""
+        if let notesField = notesTextView.text {
+            notes = notesField
         }
+        
+        TransactionController.shared.createTransaction(address: address, city: city, state: state, zip: zipcode, sqFeet: sqft, isVacant: homeIsVacant, homeOwnerPhone: phoneNumber, dateOne: dateOne, timeOne: timeOne, dateTwo: dateTwo, timeTwo: timeTwo, package: package, addOns: addOns, notes: notes)
         navigationController?.popToRootViewController(animated: true)
     }
     

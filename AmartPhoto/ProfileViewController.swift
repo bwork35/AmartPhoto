@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var brokerImage: UIImageView!
     @IBOutlet weak var brokerageLabel: UILabel!
     @IBOutlet weak var numProjectsCompletedLabel: UILabel!
+    @IBOutlet weak var brokerageView: UIView!
     
     //MARK: - Properties
     var user: User?
@@ -41,7 +42,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let profile = user.image {
             profileImage.image = profile
         }
-        
+        if user.role == .admin {
+            brokerageView.isHidden = true
+        }
     }
 
     //MARK: - Table View Data Source

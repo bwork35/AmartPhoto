@@ -16,6 +16,13 @@ class LogInViewController: UIViewController {
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(CreateTransactionContinuedViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(CreateTransactionContinuedViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     //MARK: - Actions
@@ -29,6 +36,20 @@ class LogInViewController: UIViewController {
         guard let viewController = storyboard.instantiateInitialViewController() else {return}
         viewController.modalPresentationStyle = .fullScreen
         self.present(viewController, animated: true)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {return}
+        
+        if passwordTextField.isEditing {
+            self.view.frame.origin.y = 0 - keyboardSize.height + 120
+        } else if emailTextField.isEditing {
+            self.view.frame.origin.y = 0 - keyboardSize.height + 120
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.view.frame.origin.y = 0
     }
 
     /*

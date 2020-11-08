@@ -13,13 +13,13 @@ class TransactionController {
     static let shared = TransactionController()
     
     var transactions: [Transaction] = {
-        return [Transaction(id: 0, status: .pending, address: "711 Pennwood Dr.", city: "McDonald", state: "PA", zip: "15057", sqFeet: "1234", dateOne: "Nov 15", timeOne: .morning, dateTwo: "Nov 16", timeTwo: .afternoon, notes: "the quick brown fox...", isVacant: true, homeOwnerPhone: "724-746-8859")]
+        return [Transaction(id: 0, status: .pending, address: "711 Pennwood Dr.", city: "McDonald", state: "PA", zip: "15057", sqFeet: "1234", isVacant: true, homeOwnerPhone: "724-746-8859", dateOne: "Nov 15", timeOne: .morning, dateTwo: "Nov 16", timeTwo: .afternoon, package: "", addOns: [""], notes: "the quick brown fox...")]
     }()
     
     //MARK: - CRUD
     //Create
-    func createTransaction(address: String, city: String, state: String, zip: String, sqFeet: String, dateOne: String, timeOne: Transaction.TimeOfDay, dateTwo: String, timeTwo: Transaction.TimeOfDay, notes: String, isVacant: Bool, homeOwnerPhone: String) {
-        let newTransaction = Transaction(id: 0, status: .pending, address: address, city: city, state: state, zip: zip, sqFeet: sqFeet, dateOne: dateOne, timeOne: timeOne, dateTwo: dateTwo, timeTwo: timeTwo, notes: notes, isVacant: isVacant, homeOwnerPhone: homeOwnerPhone)
+    func createTransaction(address: String, city: String, state: String, zip: String, sqFeet: String, isVacant: Bool, homeOwnerPhone: String, dateOne: String, timeOne: Transaction.TimeOfDay, dateTwo: String, timeTwo: Transaction.TimeOfDay, package: String, addOns: [String], notes: String) {
+        let newTransaction = Transaction(id: 0, status: .pending, address: address, city: city, state: state, zip: zip, sqFeet: sqFeet, isVacant: isVacant, homeOwnerPhone: homeOwnerPhone, dateOne: dateOne, timeOne: timeOne, dateTwo: dateTwo, timeTwo: timeTwo, package: package, addOns: addOns, notes: notes)
         self.transactions.append(newTransaction)
     }
     

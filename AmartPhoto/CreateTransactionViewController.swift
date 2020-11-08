@@ -8,7 +8,7 @@
 import UIKit
 
 class CreateTransactionViewController: UIViewController {
-
+    
     //MARK: - Outlets
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var cityTextField: UITextField!
@@ -31,29 +31,17 @@ class CreateTransactionViewController: UIViewController {
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(CreateTransactionContinuedViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(CreateTransactionContinuedViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     //MARK: - Actions
     @IBAction func continueButtonTapped(_ sender: Any) {
-        guard let address = addressTextField.text, !address.isEmpty else {return}
-        guard let city = cityTextField.text, !city.isEmpty else {return}
-        guard let state = stateTextField.text, !state.isEmpty else {return}
-        guard let zipcode = zipcodeTextField.text, !zipcode.isEmpty else {return}
-        guard let sqft = sqftTextField.text, !sqft.isEmpty else {return}
-        guard let phoneNumber = phoneNumberTextField.text, !phoneNumber.isEmpty else {return}
-        let homeIsVacant = self.isVacant
-        let dateOne = preferredDateDatePicker.date.dateAsString()
-        let timeOne = self.preferredTime
-        let dateTwo = secondaryDateDatePicker.date.dateAsString()
-        let timeTwo = self.secondaryTime
-        
-//        print("date 1: \(dateOne)")
-//        print("date 2: \(dateTwo)")
-//        print("isVacant: \(homeIsVacant)")
-//        print("time 1 : \(timeOne)")
-//        print("time 2 : \(timeTwo)")
-        
-        TransactionController.shared.createTransaction(address: address, city: city, state: state, zip: zipcode, sqFeet: sqft, dateOne: dateOne, timeOne: timeOne, dateTwo: dateTwo, timeTwo: timeTwo, notes: "", isVacant: homeIsVacant, homeOwnerPhone: phoneNumber)
     }
     
     @IBAction func vacantSegmentedControlChanged(_ sender: Any) {
@@ -88,15 +76,52 @@ class CreateTransactionViewController: UIViewController {
     }
     
     //MARK: - Helper Methods
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {return}
+        
+        if phoneNumberTextField.isEditing {
+            self.view.frame.origin.y = 0 - keyboardSize.height + 50
+//            self.view.window?.frame.origin.y = -keyboardSize.height
+        } else if sqftTextField.isEditing {
+            self.view.frame.origin.y = 0 - 50
+        }
+        
+    }
     
-
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.view.frame.origin.y = 0
+    }
+    
     
     // MARK: - Navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "CreateToCreate2" {
-//
-//        }
-//    }
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "CreateToCreate2" {
+                guard let destination = segue.destination as? CreateTransactionContinuedViewController else {return}
+                guard let address = addressTextField.text, !address.isEmpty else {return}
+                guard let city = cityTextField.text, !city.isEmpty else {return}
+                guard let state = stateTextField.text, !state.isEmpty else {return}
+                guard let zipcode = zipcodeTextField.text, !zipcode.isEmpty else {return}
+                guard let sqft = sqftTextField.text, !sqft.isEmpty else {return}
+                guard let phoneNumber = phoneNumberTextField.text, !phoneNumber.isEmpty else {return}
+                let homeIsVacant = self.isVacant
+                let dateOne = preferredDateDatePicker.date.dateAsString()
+                let timeOne = self.preferredTime
+                let dateTwo = secondaryDateDatePicker.date.dateAsString()
+                let timeTwo = self.secondaryTime
+                
+                destination.address = address
+                destination.city = city
+                destination.state = state
+                destination.zipcode = zipcode
+                destination.sqft = sqft
+                destination.phoneNumber = phoneNumber
+                destination.homeIsVacant = homeIsVacant
+                destination.dateOne = dateOne
+                destination.timeOne = timeOne
+                destination.dateTwo = dateTwo
+                destination.timeTwo = timeTwo
+            }
+        }
     
-
+    
 } //End of class

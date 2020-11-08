@@ -11,6 +11,7 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
 
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var plusButton: UIBarButtonItem!
     
     //MARK: - Properties
     var myArray = ["123 Street Way", "456 ABC Drive", "789 Road Rd"]
@@ -20,6 +21,7 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        setUpView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,7 +30,12 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     //MARK: - Helper Methods
-
+    func setUpView() {
+        if UserController.shared.currentUser?.role == .admin {
+            plusButton.isEnabled = false
+            plusButton.tintColor = .clear
+        }
+    }
     
     //MARK: - Table View Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
