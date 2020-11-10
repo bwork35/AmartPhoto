@@ -24,6 +24,7 @@ class SignUpContinuedViewController: UIViewController {
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpView()
     }
     
     //MARK: - Actions
@@ -58,11 +59,30 @@ class SignUpContinuedViewController: UIViewController {
     }
     
     //MARK: - Helper Methods
+    func setUpView() {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(CreateTransactionContinuedViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(CreateTransactionContinuedViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     func presentTransactionListVC() {
         let storyboard = UIStoryboard(name: "Amart", bundle: nil)
         guard let viewController = storyboard.instantiateInitialViewController() else {return}
         viewController.modalPresentationStyle = .fullScreen
         self.present(viewController, animated: true)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {return}
+        
+        self.view.frame.origin.y = 0 - keyboardSize.height + 100
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.view.frame.origin.y = 0
     }
     
     /*

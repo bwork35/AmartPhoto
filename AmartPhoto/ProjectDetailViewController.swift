@@ -18,6 +18,8 @@ class ProjectDetailViewController: UIViewController {
     @IBOutlet weak var secondaryDateLabel: UILabel!
     @IBOutlet weak var projectDetailsLabel: UILabel!
     @IBOutlet weak var notesLabel: UILabel!
+    @IBOutlet weak var clientNameView: UIView!
+    @IBOutlet weak var clientNameLabel: UILabel!
     
     //MARK: - Properties
     var transaction: Transaction?
@@ -26,11 +28,20 @@ class ProjectDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+//        clientNameView.isHidden = false
     }
     
     //MARK: - Helper Methods
     func updateViews() {
         guard let transaction = transaction else {return}
+        guard let user = UserController.shared.currentUser else {return}
+        if user.role == .client {
+            clientNameView.isHidden = true
+        } else {
+            clientNameView.isHidden = false
+            clientNameLabel.text = transaction.client
+        }
+        
         addressLabel.text = "\(transaction.address) \(transaction.city), \(transaction.state)"
         squareFeetLabel.text = transaction.sqFeet
         if transaction.isVacant == false {
@@ -41,7 +52,9 @@ class ProjectDetailViewController: UIViewController {
         phoneNumberLabel.text = transaction.homeOwnerPhone
         primaryDateLabel.text = "\(transaction.dateOne), \(transaction.timeOne)"
         secondaryDateLabel.text = "\(transaction.dateTwo), \(transaction.timeTwo)"
-        //projectDetails
+        
+        let addOnDetails = transaction.addOns.joined(separator: ", ")
+        projectDetailsLabel.text = "\(transaction.package) \n\(addOnDetails)"
         notesLabel.text = transaction.notes
     }
 

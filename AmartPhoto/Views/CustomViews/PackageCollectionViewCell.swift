@@ -12,6 +12,7 @@ class PackageCollectionViewCell: UICollectionViewCell {
     //MARK: - Outlets
     @IBOutlet weak var packageTitleLabel: UILabel!
     @IBOutlet weak var packageDescriptionLabel: UILabel!
+    @IBOutlet weak var packageView: UIView!
     
     //MARK: - Properties
     var package: Package? {
