@@ -16,10 +16,8 @@ class User {
     var phoneNumber: String
     var role: Role
     var transactions: [Transaction]
-//    fileprivate var imageName: String
     var image: UIImage?
     var brokerImage: UIImage?
-//    fileprivate var brokerImageName: String
     
     init(id: Int, firstName: String, lastName: String, email: String, brokerage: String, phoneNumber: String, role: Role, transactions: [Transaction], image: UIImage?, brokerImage: UIImage?) {
         self.id = id
@@ -40,17 +38,8 @@ class User {
     }
 } //End of class
 
-//extension User {
-//    var image: Image {
-//        ImageStore.shared.image(name: imageName)
-//    }
-//    var brokerImage: Image {
-//        ImageStore.shared.image(name: brokerImageName)
-//    }
-//}
-
 extension User: Equatable {
     static func == (lhs: User, rhs: User) -> Bool {
         return lhs.id == rhs.id && lhs.firstName == rhs.firstName && lhs.lastName == rhs.lastName && lhs.email == rhs.email && lhs.brokerage == rhs.brokerage && lhs.phoneNumber == rhs.phoneNumber && lhs.role == rhs.role && lhs.transactions == rhs.transactions && lhs.image == rhs.image && lhs.brokerImage == rhs.brokerImage
     }
-}
+} //End of extension

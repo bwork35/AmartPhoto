@@ -12,6 +12,7 @@ class AddOnCollectionViewCell: UICollectionViewCell {
     //MARK: - Outlets
     @IBOutlet weak var addOnTitleLabel: UILabel!
     @IBOutlet weak var addOnDescriptionLabel: UILabel!
+    @IBOutlet weak var addOnView: UIView!
     
     //MARK: - Properties
     var addOn: AddOn? {
