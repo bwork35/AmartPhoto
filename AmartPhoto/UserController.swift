@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class UserController {
     
@@ -18,6 +19,14 @@ class UserController {
     func createUser(firstName: String, lastName: String, email: String, brokerage: String, phoneNumber: String, role: User.Role) {
         let newUser = User(id: 0, firstName: firstName, lastName: lastName, email: email, brokerage: brokerage, phoneNumber: phoneNumber, role: role, transactions: [], image: nil, brokerImage: nil)
         currentUser = newUser
+    }
+    
+    func authUser(email: String, password: String) {
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                print("There was an error authenticating a new user -- \(error) -- \(error.localizedDescription)")
+            }
+        }
     }
     
     //Read (Fetch)

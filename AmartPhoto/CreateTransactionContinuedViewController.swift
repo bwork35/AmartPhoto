@@ -117,6 +117,7 @@ class CreateTransactionContinuedViewController: UIViewController, UICollectionVi
             cell = packageCell
             let package = packageList[indexPath.row]
             packageCell.package = package
+            packageCell.packageDelegate = self
         } else if collectionView == addOnCollectionView {
             guard let addOnCell = collectionView.dequeueReusableCell(withReuseIdentifier: "addOnCell", for: indexPath) as? AddOnCollectionViewCell else {return UICollectionViewCell()}
             cell = addOnCell
@@ -127,25 +128,25 @@ class CreateTransactionContinuedViewController: UIViewController, UICollectionVi
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? PackageCollectionViewCell {
-            guard let packageTitle = cell.packageTitleLabel.text else {return}
-            guard let view = cell.packageView else {return}
-            print(packageTitle)
-            view.backgroundColor = .cyan
-        } else if let cell = collectionView.cellForItem(at: indexPath) as? AddOnCollectionViewCell {
-            guard let addOnTitle = cell.addOnTitleLabel.text else {return}
-            guard let view = cell.addOnView else {return}
-            print(addOnTitle)
-            view.backgroundColor = .cyan
-        }
-        
-        //        if collectionView == packageCollectionView {
-        //            print("package selected")
-        //        } else if collectionView == addOnCollectionView {
-        //            print("addOn selected")
-        //        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        if let cell = collectionView.cellForItem(at: indexPath) as? PackageCollectionViewCell {
+//            guard let packageTitle = cell.packageTitleLabel.text else {return}
+//            guard let view = cell.packageView else {return}
+//            print(packageTitle)
+//            view.backgroundColor = .cyan
+//        } else if let cell = collectionView.cellForItem(at: indexPath) as? AddOnCollectionViewCell {
+//            guard let addOnTitle = cell.addOnTitleLabel.text else {return}
+//            guard let view = cell.addOnView else {return}
+//            print(addOnTitle)
+//            view.backgroundColor = .cyan
+//        }
+//
+//        //        if collectionView == packageCollectionView {
+//        //            print("package selected")
+//        //        } else if collectionView == addOnCollectionView {
+//        //            print("addOn selected")
+//        //        }
+//    }
     
     /*
      // MARK: - Navigation
@@ -176,3 +177,9 @@ extension CreateTransactionContinuedViewController: UITextViewDelegate {
         }
     }
 } //End of extension
+
+extension CreateTransactionContinuedViewController: PackageSelectDelegate {
+    func packageSelected(packageTitle: String) {
+        print(packageTitle)
+    }
+}

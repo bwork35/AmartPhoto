@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol PackageSelectDelegate: AnyObject {
+    func packageSelected(packageTitle: String)
+}
+
 class PackageCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Outlets
@@ -20,8 +24,14 @@ class PackageCollectionViewCell: UICollectionViewCell {
             updateViews()
         }
     }
+    weak var packageDelegate: PackageSelectDelegate?
     
     //MARK: - Actions
+    @IBAction func selectPackageButtonTapped(_ sender: Any) {
+        guard let packageTitle = packageTitleLabel.text else {return}
+//        print(packageTitle)
+        packageDelegate?.packageSelected(packageTitle: packageTitle)
+    }
     
     
     //MARK: - Helper Methods

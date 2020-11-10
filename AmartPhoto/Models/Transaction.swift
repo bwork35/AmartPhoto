@@ -48,8 +48,9 @@ class Transaction {
     
     enum Status: String, CaseIterable, Codable, Hashable {
         case pending = "Pending"
-        case approved = "Approved"
-        case completed = "Completed"
+        case confirmed = "Confirmed"
+//        case approved = "Approved"
+//        case completed = "Completed"
     }
     enum TimeOfDay: String, CaseIterable, Codable, Hashable {
         case morning = "Morning"

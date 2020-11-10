@@ -19,3 +19,16 @@ class AmartButton: UIButton {
     }
     
 } //End of class
+
+class ConfirmButton: UIButton {
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupView()
+    }
+    func setupView() {
+        self.layer.cornerRadius = 20.0
+        self.clipsToBounds = true
+    }
+    
+} //End of class
