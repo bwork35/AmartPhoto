@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>890602154336-mbt8nrsv2a41e6efdi38kqouopajumrv.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.890602154336-mbt8nrsv2a41e6efdi38kqouopajumrv</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDzEAQQLc0VpMqPQFOZ0cXHwbZkfpoF5YY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>890602154336</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.bryanworkman.AmartPhoto</string>
+	<key>PROJECT_ID</key>
+	<string>amartphoto-dbffd</string>
+	<key>STORAGE_BUCKET</key>
+	<string>amartphoto-dbffd.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:890602154336:ios:478e028971368a558e1605</string>
+	<key>DATABASE_URL</key>
+	<string>https://amartphoto-dbffd.firebaseio.com</string>
+</dict>
+</plist>
