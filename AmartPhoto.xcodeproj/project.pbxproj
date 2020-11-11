@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,7 @@
 		93A3BA4C2548E7460005257A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA4B2548E7460005257A /* User.swift */; };
 		93A3BA512548E79B0005257A /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA502548E79B0005257A /* Transaction.swift */; };
 		93C613DD255A4D7800D7ECEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93C613DC255A4D7800D7ECEC /* GoogleService-Info.plist */; };
+		93C61418255B772400D7ECEC /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C61417255B772300D7ECEC /* StyleGuide.swift */; };
 		93C795192552345E0014DFD0 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C795182552345E0014DFD0 /* UserController.swift */; };
 		93C7951E2552346C0014DFD0 /* TransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C7951D2552346C0014DFD0 /* TransactionController.swift */; };
 		93C79538255355930014DFD0 /* Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C79537255355930014DFD0 /* Packages.swift */; };
@@ -86,6 +87,7 @@
 		93A3BA4B2548E7460005257A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		93A3BA502548E79B0005257A /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		93C613DC255A4D7800D7ECEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		93C61417255B772300D7ECEC /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		93C795182552345E0014DFD0 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		93C7951D2552346C0014DFD0 /* TransactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionController.swift; sourceTree = "<group>"; };
 		93C79537255355930014DFD0 /* Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Packages.swift; sourceTree = "<group>"; };
@@ -143,7 +145,6 @@
 				36E2507215A6E68ED059FE6A /* Pods-AmartPhotoTests.debug.xcconfig */,
 				6C7DDBF07247BFC5017E11BE /* Pods-AmartPhotoTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -282,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				93C79555255386780014DFD0 /* DateExtension.swift */,
+				93C61417255B772300D7ECEC /* StyleGuide.swift */,
 			);
 			path = "Helpers + Extensions";
 			sourceTree = "<group>";
@@ -564,6 +566,7 @@
 				93C79577255505940014DFD0 /* LogInViewController.swift in Sources */,
 				93C79538255355930014DFD0 /* Packages.swift in Sources */,
 				9320AA91254B691C00FA2E57 /* ProfileViewController.swift in Sources */,
+				93C61418255B772400D7ECEC /* StyleGuide.swift in Sources */,
 				93A3BA122548E6AF0005257A /* SceneDelegate.swift in Sources */,
 				9320AAA0254CC25500FA2E57 /* CreateTransactionViewController.swift in Sources */,
 				93C7953D255355E90014DFD0 /* AddOns.swift in Sources */,

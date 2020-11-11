@@ -1112,26 +1112,16 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgY-GD-HYJ">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="110"/>
-                                                                            <connections>
-                                                                                <action selector="selectPackageButtonTapped:" destination="hC5-6H-UVt" eventType="touchUpInside" id="9Ob-HR-yqL"/>
-                                                                            </connections>
-                                                                        </button>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" red="0.82391732650495419" green="1" blue="0.78486739383385262" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="200" id="8zR-gI-OcT"/>
                                                                         <constraint firstItem="9ZZ-vM-rPf" firstAttribute="centerX" secondItem="6D1-As-OaV" secondAttribute="centerX" id="Nz1-Sg-0ZR"/>
                                                                         <constraint firstAttribute="trailing" secondItem="tvX-oS-keF" secondAttribute="trailing" constant="8" id="SbR-xa-Yyx"/>
                                                                         <constraint firstAttribute="height" constant="110" id="VBd-d4-tKL"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="sgY-GD-HYJ" secondAttribute="bottom" id="Y9G-Vs-OTF"/>
                                                                         <constraint firstItem="tvX-oS-keF" firstAttribute="leading" secondItem="6D1-As-OaV" secondAttribute="leading" constant="8" id="YM8-Qu-KzN"/>
                                                                         <constraint firstItem="tvX-oS-keF" firstAttribute="top" secondItem="9ZZ-vM-rPf" secondAttribute="bottom" constant="5" id="Yud-Ck-8Oi"/>
-                                                                        <constraint firstItem="sgY-GD-HYJ" firstAttribute="leading" secondItem="6D1-As-OaV" secondAttribute="leading" id="dXm-wR-G4Y"/>
                                                                         <constraint firstItem="9ZZ-vM-rPf" firstAttribute="top" secondItem="6D1-As-OaV" secondAttribute="top" constant="8" id="dZK-fA-rO2"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="sgY-GD-HYJ" secondAttribute="trailing" id="dd9-WR-Crv"/>
-                                                                        <constraint firstItem="sgY-GD-HYJ" firstAttribute="top" secondItem="6D1-As-OaV" secondAttribute="top" id="fEK-Uy-cKb"/>
                                                                     </constraints>
                                                                 </view>
                                                             </subviews>
@@ -1190,7 +1180,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" red="1" green="0.85382364801302379" blue="0.8910534236527855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstItem="hxn-Ih-GZM" firstAttribute="centerX" secondItem="Zu9-O7-Sdo" secondAttribute="centerX" id="89v-Bs-boA"/>
                                                                         <constraint firstAttribute="height" constant="110" id="OOT-fI-P3v"/>
