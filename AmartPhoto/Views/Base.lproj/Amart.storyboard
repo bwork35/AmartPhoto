@@ -223,7 +223,13 @@
                             <constraint firstItem="CP7-dc-jsx" firstAttribute="top" secondItem="9Eg-d8-pWp" secondAttribute="bottom" constant="30" id="tKD-9H-fTO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Vev-0x-bfJ"/>
+                    <navigationItem key="navigationItem" id="Vev-0x-bfJ">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="TmS-Q9-CN6">
+                            <connections>
+                                <action selector="logOutButtonTapped:" destination="jYY-Xi-a8E" id="LEg-XG-hAa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="brokerImage" destination="c3V-yQ-zhO" id="TC4-R6-1bw"/>
                         <outlet property="brokerageLabel" destination="Ip1-B9-L2a" id="YuB-8C-tYb"/>

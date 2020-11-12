@@ -21,6 +21,10 @@ class LogInViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func logInButtonTapped(_ sender: Any) {
+        guard let email = emailTextField.text, !email.isEmpty else {return}
+        guard let password = passwordTextField.text, !password.isEmpty else {return}
+        
+        UserController.shared.signInUser(email: email, password: password)
         presentTransactionListVC()
     }
     

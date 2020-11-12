@@ -13,6 +13,7 @@ class UserController {
     //MARK: - Properties
     static let shared = UserController()
     var currentUser: User?
+    let db = Firestore.firestore()
     
     //MARK: - CRUD
     //Create
@@ -21,16 +22,62 @@ class UserController {
         currentUser = newUser
     }
     
+//    func createUser(id: String, firstName: String, lastName: String, email: String, brokerage: String, phoneNumber: String, role: User.Role) {
+//
+//    }
+    
+    func authAndCreateUser(email: String, password: String, firstName: String, lastName: String, brokerage: String, phoneNumber: String, role: String) {
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                print("There was an error authenticating a new user -- \(error) -- \(error.localizedDescription)")
+            } else {
+                self.db.collection("users").addDocument(data: [
+                    "firstName": firstName,
+                    "lastName": lastName,
+                    "email": email,
+                    "brokerage": brokerage,
+                    "phoneNumber": phoneNumber,
+                    "role": role,
+                    "transactions": []
+                ]) { (error) in
+                    if let error = error {
+                        print("There was an error saving to firestore -- \(error) -- \(error.localizedDescription)")
+                    } else {
+                        print("Successfully saved user.")
+                    }
+                }
+            }
+        }
+    }
+    
     func authUser(email: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 print("There was an error authenticating a new user -- \(error) -- \(error.localizedDescription)")
+            } else {
+                print(authResult as Any)
             }
         }
     }
     
     //Read (Fetch)
+    func signInUser(email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                print("There was an error signing in a user -- \(error) -- \(error.localizedDescription)")
+            } else {
+                print("Successfully signed in user.")
+            }
+        }
+    }
     
+    func logOutUser() {
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
     
     //Update
     func updateUser(user: User, firstName: String, lastName: String, email: String, brokerage: String, phoneNumber: String, role: User.Role, transactions: [Transaction], image: UIImage?, brokerImage: UIImage?) {

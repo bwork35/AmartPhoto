@@ -33,6 +33,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     //MARK: - Actions
     @IBAction func editButtonTapped(_ sender: Any) {
     }
+    @IBAction func logOutButtonTapped(_ sender: Any) {
+        UserController.shared.logOutUser()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let viewController = storyboard.instantiateInitialViewController() else {return}
+        viewController.modalPresentationStyle = .fullScreen
+        self.present(viewController, animated: true)
+    }
     
     //MARK: - Helper Methods
     func updateViews() {

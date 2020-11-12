@@ -67,6 +67,7 @@ class SignUpViewController: UIViewController {
             destination.firstName = firstName
             destination.lastName = lastName
             destination.email = email
+            destination.password = password
         }
     }
 
