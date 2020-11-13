@@ -22,6 +22,7 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.delegate = self
         tableView.dataSource = self
         setUpView()
+        fetchTransactions()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +35,12 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
         if UserController.shared.currentUser?.role == .admin {
             plusButton.isEnabled = false
             plusButton.tintColor = .clear
+        }
+    }
+    
+    func fetchTransactions() {
+        TransactionController.shared.fetchTransactions() {
+            self.tableView.reloadData()
         }
     }
     

@@ -60,12 +60,6 @@ class SignUpContinuedViewController: UIViewController {
         UserController.shared.authAndCreateUser(email: email, password: password, firstName: firstName, lastName: lastName, brokerage: brokerage, phoneNumber: phoneNumber, role: accountType) {
             self.presentTransactionListVC()
         }
-        
-//        UserController.shared.authUser(email: email, password: password)
-//
-//        UserController.shared.createUser(firstName: firstName, lastName: lastName, email: email, brokerage: brokerage, phoneNumber: phoneNumber, role: accountType)
-        
-        
     }
     
     //MARK: - Helper Methods

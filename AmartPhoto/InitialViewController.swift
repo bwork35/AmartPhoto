@@ -19,11 +19,19 @@ class InitialViewController: UIViewController {
     //MARK: - Helper Methods
     func checkUser() {
         if Auth.auth().currentUser != nil {
-            let storyboard = UIStoryboard(name: "Amart", bundle: nil)
-            guard let viewController = storyboard.instantiateInitialViewController() else {return}
-            viewController.modalPresentationStyle = .fullScreen
-            self.present(viewController, animated: true)
+            guard let user = Auth.auth().currentUser else {return}
+            guard let email = user.email else {return}
+            UserController.shared.fetchUser(email: email) {
+                self.presentTransactionListVC()
+            }
         }
+    }
+    
+    func presentTransactionListVC() {
+        let storyboard = UIStoryboard(name: "Amart", bundle: nil)
+        guard let viewController = storyboard.instantiateInitialViewController() else {return}
+        viewController.modalPresentationStyle = .fullScreen
+        self.present(viewController, animated: true)
     }
 
     /*
