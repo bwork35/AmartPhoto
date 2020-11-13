@@ -22,11 +22,7 @@ class UserController {
         currentUser = newUser
     }
     
-//    func createUser(id: String, firstName: String, lastName: String, email: String, brokerage: String, phoneNumber: String, role: User.Role) {
-//
-//    }
-    
-    func authAndCreateUser(email: String, password: String, firstName: String, lastName: String, brokerage: String, phoneNumber: String, role: String) {
+    func authAndCreateUser(email: String, password: String, firstName: String, lastName: String, brokerage: String, phoneNumber: String, role: String, completion: @escaping () -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 print("There was an error authenticating a new user -- \(error) -- \(error.localizedDescription)")
@@ -43,7 +39,14 @@ class UserController {
                     if let error = error {
                         print("There was an error saving to firestore -- \(error) -- \(error.localizedDescription)")
                     } else {
-                        print("Successfully saved user.")
+                        var accountType: User.Role = .client
+                        if role == "Client" {
+                            accountType = .client
+                        } else if role == "Administrator" {
+                            accountType = .admin
+                        }
+                        self.createUser(firstName: firstName, lastName: lastName, email: email, brokerage: brokerage, phoneNumber: phoneNumber, role: accountType)
+                        completion()
                     }
                 }
             }
@@ -61,13 +64,39 @@ class UserController {
     }
     
     //Read (Fetch)
-    func signInUser(email: String, password: String) {
+    func fetchUser(email: String, completion: @escaping () -> Void) {
+        db.collection("users").whereField("email", isEqualTo: email)
+            .getDocuments() { (querySnapshot, error) in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                } else {
+                    guard let documents = querySnapshot?.documents else {return}
+                    if !documents.isEmpty {
+                        guard let doc = documents.first else {return}
+                        let data = doc.data()
+                        guard let firstName = data["firstName"] as? String, let lastName = data["lastName"] as? String, let email = data["email"] as? String, let brokerage = data["brokerage"] as? String, let phoneNumber = data["phoneNumber"] as? String, let role = data["role"] as? String else {return}
+                        var accountType: User.Role = .client
+                        if role == "Client" {
+                            accountType = .client
+                        } else if role == "Administrator" {
+                            accountType = .admin
+                        }
+                        self.createUser(firstName: firstName, lastName: lastName, email: email, brokerage: brokerage, phoneNumber: phoneNumber, role: accountType)
+                        
+                        completion()
+                    }
+                }
+            }
+    }
+    
+    func signInUser(email: String, password: String, completion: @escaping () -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 print("There was an error signing in a user -- \(error) -- \(error.localizedDescription)")
             } else {
                 print("Successfully signed in user.")
             }
+            completion()
         }
     }
     

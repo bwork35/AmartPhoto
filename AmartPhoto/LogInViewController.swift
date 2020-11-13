@@ -24,8 +24,12 @@ class LogInViewController: UIViewController {
         guard let email = emailTextField.text, !email.isEmpty else {return}
         guard let password = passwordTextField.text, !password.isEmpty else {return}
         
-        UserController.shared.signInUser(email: email, password: password)
-        presentTransactionListVC()
+        UserController.shared.signInUser(email: email, password: password) {
+            UserController.shared.fetchUser(email: email) {
+                self.presentTransactionListVC()
+                
+            }
+        }
     }
     
     //MARK: - Helper Methods
