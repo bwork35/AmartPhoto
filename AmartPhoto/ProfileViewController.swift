@@ -56,13 +56,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     //MARK: - Table View Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myArray.count
+        return TransactionController.shared.confirmedTransactions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "completedCell", for: indexPath) as? CompletedProjectsTableViewCell else {return UITableViewCell()}
         
-        cell.myString = myArray[indexPath.row]
+        cell.myString = TransactionController.shared.confirmedTransactions[indexPath.row].address
         
         return cell
     }

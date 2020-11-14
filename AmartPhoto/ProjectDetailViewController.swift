@@ -38,6 +38,12 @@ class ProjectDetailViewController: UIViewController {
         transaction.status = .confirmed
         confirmView.isHidden = true
         totalViewHeight.constant = 700
+        
+        guard let index = TransactionController.shared.transactions.firstIndex(of: transaction) else {return}
+        TransactionController.shared.transactions.remove(at: index)
+        TransactionController.shared.confirmedTransactions.append(transaction)
+        
+        TransactionController.shared.updateTransactionStatus(id: transaction.id)
     }
     
     //MARK: - Helper Methods
