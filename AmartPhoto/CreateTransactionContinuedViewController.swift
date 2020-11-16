@@ -26,7 +26,7 @@ class CreateTransactionContinuedViewController: UIViewController, UICollectionVi
     var timeOne: Transaction.TimeOfDay?
     var dateTwo: String?
     var timeTwo: Transaction.TimeOfDay?
-    var selectedPackage: String = ""
+    var selectedPackage: String = "Photo Package"
     var selectedAddOns: [String] = []
     
     //MARK: - Lifecycles
@@ -56,15 +56,23 @@ class CreateTransactionContinuedViewController: UIViewController, UICollectionVi
         guard let timeOne = timeOne else {return}
         guard let dateTwo = dateTwo else {return}
         guard let timeTwo = timeTwo else {return}
-        let package = ""
-        let addOns = [""]
+        let package = selectedPackage
+        let addOns = selectedAddOns
         var notes = ""
         if let notesField = notesTextView.text {
-            notes = notesField
+            if notesField != "Write down any other info you'd like us to know!" {
+                notes = notesField
+            }
         }
+        let tod1 = timeOne.rawValue
+        let tod2 = timeTwo.rawValue
+        let status = "Pending"
         
-        TransactionController.shared.createTransaction(client: client, address: address, city: city, state: state, zip: zipcode, sqFeet: sqft, isVacant: homeIsVacant, homeOwnerPhone: phoneNumber, dateOne: dateOne, timeOne: timeOne, dateTwo: dateTwo, timeTwo: timeTwo, package: package, addOns: addOns, notes: notes)
-        navigationController?.popToRootViewController(animated: true)
+        //        TransactionController.shared.createTransaction(client: client, address: address, city: city, state: state, zip: zipcode, sqFeet: sqft, isVacant: homeIsVacant, homeOwnerPhone: phoneNumber, dateOne: dateOne, timeOne: timeOne, dateTwo: dateTwo, timeTwo: timeTwo, package: package, addOns: addOns, notes: notes)
+        
+        TransactionController.shared.saveTransaction(status: status, client: client, address: address, city: city, state: state, zip: zipcode, sqFeet: sqft, isVacant: homeIsVacant, homeOwnerPhone: phoneNumber, dateOne: dateOne, timeOne: tod1, dateTwo: dateTwo, timeTwo: tod2, package: package, addOns: addOns, notes: notes) {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     //MARK: - Helper Methods
@@ -117,6 +125,10 @@ class CreateTransactionContinuedViewController: UIViewController, UICollectionVi
             cell = packageCell
             let package = packageList[indexPath.row]
             packageCell.package = package
+            
+            if indexPath.row == 0 {
+                packageCell.packageView.backgroundColor = .cellGreen
+            }
         } else if collectionView == addOnCollectionView {
             guard let addOnCell = collectionView.dequeueReusableCell(withReuseIdentifier: "addOnCell", for: indexPath) as? AddOnCollectionViewCell else {return UICollectionViewCell()}
             cell = addOnCell
@@ -131,20 +143,23 @@ class CreateTransactionContinuedViewController: UIViewController, UICollectionVi
         if let cell = collectionView.cellForItem(at: indexPath) as? PackageCollectionViewCell {
             guard let packageTitle = cell.packageTitleLabel.text else {return}
             guard let view = cell.packageView else {return}
-            print(packageTitle)
-            view.backgroundColor = .cyan
+            for cell in packageCollectionView.visibleCells as! [PackageCollectionViewCell] {
+                cell.packageView.backgroundColor = .white
+            }
+            view.backgroundColor = .cellGreen
+            selectedPackage = packageTitle
         } else if let cell = collectionView.cellForItem(at: indexPath) as? AddOnCollectionViewCell {
             guard let addOnTitle = cell.addOnTitleLabel.text else {return}
             guard let view = cell.addOnView else {return}
-            print(addOnTitle)
-            view.backgroundColor = .cyan
+            if selectedAddOns.contains(addOnTitle) {
+                guard let index = selectedAddOns.firstIndex(of: addOnTitle) else {return}
+                selectedAddOns.remove(at: index)
+                view.backgroundColor = .white
+            } else {
+                selectedAddOns.append(addOnTitle)
+                view.backgroundColor = .cellPink
+            }
         }
-        
-        //        if collectionView == packageCollectionView {
-        //            print("package selected")
-        //        } else if collectionView == addOnCollectionView {
-        //            print("addOn selected")
-        //        }
     }
     
     /*

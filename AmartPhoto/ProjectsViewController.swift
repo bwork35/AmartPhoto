@@ -14,7 +14,6 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var plusButton: UIBarButtonItem!
     
     //MARK: - Properties
-    var myArray = ["123 Street Way", "456 ABC Drive", "789 Road Rd"]
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
@@ -22,6 +21,7 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.delegate = self
         tableView.dataSource = self
         setUpView()
+        fetchTransactions()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +34,19 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
         if UserController.shared.currentUser?.role == .admin {
             plusButton.isEnabled = false
             plusButton.tintColor = .clear
+        }
+    }
+    
+    func fetchTransactions() {
+        guard let user = UserController.shared.currentUser else {return}
+        if user.role == .client {
+            TransactionController.shared.fetchTransactions() {
+                self.tableView.reloadData()
+            }
+        } else if user.role == .admin {
+            TransactionController.shared.fetchAllTransactions() {
+                self.tableView.reloadData()
+            }
         }
     }
     

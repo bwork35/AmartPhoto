@@ -10,8 +10,8 @@ import UIKit
 class ProjectsTableViewCell: UITableViewCell {
 
     //MARK: - Outlets
-    @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     
     //MARK: - Properties
@@ -23,9 +23,15 @@ class ProjectsTableViewCell: UITableViewCell {
     
     //MARK: - Helper Methods
     func updateViews() {
+        guard let user = UserController.shared.currentUser else {return}
         guard let transaction = transaction else {return}
-        addressLabel.text = transaction.address
-        cityLabel.text = transaction.city
+        if user.role == .client {
+            topLabel.text = transaction.address
+            bottomLabel.text = transaction.city
+        } else if user.role == .admin {
+            topLabel.text = transaction.client
+            bottomLabel.text = transaction.address
+        }
         statusLabel.text = "Status: \(transaction.status)"
     }
 

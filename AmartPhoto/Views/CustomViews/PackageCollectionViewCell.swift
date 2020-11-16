@@ -21,9 +21,6 @@ class PackageCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    //MARK: - Actions
-    
-    
     //MARK: - Helper Methods
     func updateViews() {
         guard let package = package else {return}

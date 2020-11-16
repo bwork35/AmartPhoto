@@ -20,6 +20,8 @@ class ProjectDetailViewController: UIViewController {
     @IBOutlet weak var notesLabel: UILabel!
     @IBOutlet weak var clientNameView: UIView!
     @IBOutlet weak var clientNameLabel: UILabel!
+    @IBOutlet weak var confirmView: UIView!
+    @IBOutlet weak var totalViewHeight: NSLayoutConstraint!
     
     //MARK: - Properties
     var transaction: Transaction?
@@ -28,7 +30,20 @@ class ProjectDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-//        clientNameView.isHidden = false
+    }
+    
+    //MARK: - Actions
+    @IBAction func confirmButtonTapped(_ sender: Any) {
+        guard let transaction = transaction else {return}
+        transaction.status = .confirmed
+        confirmView.isHidden = true
+        totalViewHeight.constant = 700
+        
+        guard let index = TransactionController.shared.transactions.firstIndex(of: transaction) else {return}
+        TransactionController.shared.transactions.remove(at: index)
+        TransactionController.shared.confirmedTransactions.append(transaction)
+        
+        TransactionController.shared.updateTransactionStatus(id: transaction.id)
     }
     
     //MARK: - Helper Methods
@@ -37,9 +52,13 @@ class ProjectDetailViewController: UIViewController {
         guard let user = UserController.shared.currentUser else {return}
         if user.role == .client {
             clientNameView.isHidden = true
+            confirmView.isHidden = true
+            totalViewHeight.constant = 700
         } else {
             clientNameView.isHidden = false
             clientNameLabel.text = transaction.client
+            confirmView.isHidden = false
+            totalViewHeight.constant = 800
         }
         
         addressLabel.text = "\(transaction.address) \(transaction.city), \(transaction.state)"

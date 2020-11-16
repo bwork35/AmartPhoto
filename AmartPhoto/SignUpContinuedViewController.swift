@@ -19,6 +19,7 @@ class SignUpContinuedViewController: UIViewController {
     var firstName: String?
     var lastName: String?
     var email: String?
+    var password: String?
     var role: User.Role = .client
     
     //MARK: - Lifecycles
@@ -43,6 +44,7 @@ class SignUpContinuedViewController: UIViewController {
         guard let firstName = firstName else {return}
         guard let lastName = lastName else {return}
         guard let email = email else {return}
+        guard let password = password else {return}
         var phoneNumber = ""
         var brokerage = ""
         if let number = phoneNumberTextField.text {
@@ -51,11 +53,13 @@ class SignUpContinuedViewController: UIViewController {
         if let company = brokerageTextField.text {
             brokerage = company
         }
-        let accountType: User.Role = role
+//        let accountType: User.Role = role
+        let accountType = role.rawValue
         
-        UserController.shared.createUser(firstName: firstName, lastName: lastName, email: email, brokerage: brokerage, phoneNumber: phoneNumber, role: accountType)
         
-        presentTransactionListVC()
+        UserController.shared.authAndCreateUser(email: email, password: password, firstName: firstName, lastName: lastName, brokerage: brokerage, phoneNumber: phoneNumber, role: accountType) {
+            self.presentTransactionListVC()
+        }
     }
     
     //MARK: - Helper Methods
