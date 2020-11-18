@@ -22,6 +22,9 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         setUpView()
         fetchTransactions()
+        
+        guard let user = UserController.shared.currentUser else {return}
+        print(user.id)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +62,8 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "transactionCell", for: indexPath) as? ProjectsTableViewCell else {return UITableViewCell()}
         
         cell.transaction = TransactionController.shared.transactions[indexPath.row]
+        
+        print("*\n*\n*\(cell.transaction?.id)\n*\n*\n")
         
         return cell
     }

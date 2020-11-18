@@ -8,7 +8,7 @@
 import UIKit
 
 class ProjectDetailViewController: UIViewController {
-
+    
     //MARK: - Outlets
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var squareFeetLabel: UILabel!
@@ -37,7 +37,7 @@ class ProjectDetailViewController: UIViewController {
         guard let transaction = transaction else {return}
         transaction.status = .confirmed
         confirmView.isHidden = true
-        totalViewHeight.constant = 700
+        totalViewHeight.constant = 750
         
         guard let index = TransactionController.shared.transactions.firstIndex(of: transaction) else {return}
         TransactionController.shared.transactions.remove(at: index)
@@ -57,8 +57,13 @@ class ProjectDetailViewController: UIViewController {
         } else {
             clientNameView.isHidden = false
             clientNameLabel.text = transaction.client
-            confirmView.isHidden = false
-            totalViewHeight.constant = 800
+            if transaction.status.rawValue == "Confirmed"  {
+                confirmView.isHidden = true
+                totalViewHeight.constant = 750
+            } else {
+                confirmView.isHidden = false
+                totalViewHeight.constant = 800
+            }
         }
         
         addressLabel.text = "\(transaction.address) \(transaction.city), \(transaction.state)"
@@ -76,15 +81,15 @@ class ProjectDetailViewController: UIViewController {
         projectDetailsLabel.text = "\(transaction.package) \n\(addOnDetails)"
         notesLabel.text = transaction.notes
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 } //End of class

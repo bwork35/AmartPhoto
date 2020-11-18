@@ -20,6 +20,7 @@ class SignUpContinuedViewController: UIViewController {
     var lastName: String?
     var email: String?
     var password: String?
+    var userID: String?
     var role: User.Role = .client
     
     //MARK: - Lifecycles
@@ -45,6 +46,7 @@ class SignUpContinuedViewController: UIViewController {
         guard let lastName = lastName else {return}
         guard let email = email else {return}
         guard let password = password else {return}
+        guard let userID = userID else {return}
         var phoneNumber = ""
         var brokerage = ""
         if let number = phoneNumberTextField.text {
@@ -56,10 +58,13 @@ class SignUpContinuedViewController: UIViewController {
 //        let accountType: User.Role = role
         let accountType = role.rawValue
         
-        
-        UserController.shared.authAndCreateUser(email: email, password: password, firstName: firstName, lastName: lastName, brokerage: brokerage, phoneNumber: phoneNumber, role: accountType) {
+        UserController.shared.saveUser(id: userID, email: email, firstName: firstName, lastName: lastName, brokerage: brokerage, phoneNumber: phoneNumber, role: accountType) {
             self.presentTransactionListVC()
         }
+        
+//        UserController.shared.authAndCreateUser(email: email, password: password, firstName: firstName, lastName: lastName, brokerage: brokerage, phoneNumber: phoneNumber, role: accountType) {
+//            self.presentTransactionListVC()
+//        }
     }
     
     //MARK: - Helper Methods
@@ -81,7 +86,6 @@ class SignUpContinuedViewController: UIViewController {
     
     @objc func keyboardWillShow(notification: NSNotification) {
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {return}
-        
         self.view.frame.origin.y = 0 - keyboardSize.height + 100
     }
     

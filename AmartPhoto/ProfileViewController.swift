@@ -30,6 +30,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         updateViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
+    }
+    
     //MARK: - Actions
     @IBAction func editButtonTapped(_ sender: Any) {
     }
@@ -52,6 +57,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if user.role == .admin {
             brokerageView.isHidden = true
         }
+        numProjectsCompletedLabel.text = "\(TransactionController.shared.confirmedTransactions.count)"
     }
 
     //MARK: - Table View Data Source
@@ -62,19 +68,18 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "completedCell", for: indexPath) as? CompletedProjectsTableViewCell else {return UITableViewCell()}
         
-        cell.myString = TransactionController.shared.confirmedTransactions[indexPath.row].address
+        cell.transaction = TransactionController.shared.confirmedTransactions[indexPath.row]
         
         return cell
     }
     
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ProfileToDetailVC" {
+            guard let indexPath = tableView.indexPathForSelectedRow else {return}
+            guard let destination = segue.destination as? ProjectDetailViewController else {return}
+            let transactionToSend = TransactionController.shared.confirmedTransactions[indexPath.row]
+            destination.transaction = transactionToSend
+        }
     }
-    */
-
 } //End of class

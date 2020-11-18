@@ -190,10 +190,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="addressLabel" destination="xmv-wE-TyS" id="RGe-MG-SzA"/>
-                                            <outlet property="cityLabel" destination="GBX-8a-40m" id="R8Y-at-f4t"/>
+                                            <outlet property="bottomLabel" destination="GBX-8a-40m" id="R8Y-at-f4t"/>
                                             <outlet property="statusLabel" destination="y6K-cF-2kw" id="luX-rR-E8c"/>
-                                            <segue destination="qg3-Pd-ZYz" kind="show" id="qVj-IT-EYi"/>
+                                            <outlet property="topLabel" destination="xmv-wE-TyS" id="RGe-MG-SzA"/>
+                                            <segue destination="qg3-Pd-ZYz" kind="show" identifier="ProfileToDetailVC" id="qVj-IT-EYi"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1224,7 +1224,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wdp-si-bCE"/>
+        <segue reference="qVj-IT-EYi"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.right" catalog="system" width="96" height="128"/>

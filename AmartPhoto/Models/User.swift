@@ -8,18 +8,18 @@
 import UIKit
 
 class User {
-    var id: Int
+    var id: String
     var firstName: String
     var lastName: String
     var email: String
     var brokerage: String
     var phoneNumber: String
     var role: Role
-    var transactions: [Transaction]
+    var transactions: [String]
     var image: UIImage?
     var brokerImage: UIImage?
     
-    init(id: Int, firstName: String, lastName: String, email: String, brokerage: String, phoneNumber: String, role: Role, transactions: [Transaction], image: UIImage?, brokerImage: UIImage?) {
+    init(id: String, firstName: String, lastName: String, email: String, brokerage: String, phoneNumber: String, role: Role, transactions: [String], image: UIImage?, brokerImage: UIImage?) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName

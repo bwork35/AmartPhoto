@@ -15,6 +15,9 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    //MARK: - Properties
+    var userID: String?
+    
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +26,20 @@ class SignUpViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func continueButtonTapped(_ sender: Any) {
-        guard let firstName = firstNameTextField.text, !firstName.isEmpty else {return}
-        guard let lastName = lastNameTextField.text, !lastName.isEmpty else {return}
+//        guard let firstName = firstNameTextField.text, !firstName.isEmpty else {return}
+//        guard let lastName = lastNameTextField.text, !lastName.isEmpty else {return}
         guard let email = emailTextField.text, !email.isEmpty else {return}
-        guard let password = passwordTextField.text, !password.isEmpty else {return} 
+        guard let password = passwordTextField.text, !password.isEmpty else {return}
+        
+        UserController.shared.authUser(email: email, password: password) { (result) in
+            switch result {
+            case .success(let id):
+                self.userID = id
+                self.performSegue(withIdentifier: "signUpToSignUpContinued", sender: self)
+            case .failure(_):
+                print("failure")
+            }
+        }
     }
     
     //MARK: - Helper Methods
@@ -61,6 +74,7 @@ class SignUpViewController: UIViewController {
         guard let lastName = lastNameTextField.text, !lastName.isEmpty else {return}
         guard let email = emailTextField.text, !email.isEmpty else {return}
         guard let password = passwordTextField.text, !password.isEmpty else {return}
+        guard let userID = userID else {return}
         
         if segue.identifier == "signUpToSignUpContinued" {
             guard let destination = segue.destination as? SignUpContinuedViewController else {return}
@@ -68,6 +82,7 @@ class SignUpViewController: UIViewController {
             destination.lastName = lastName
             destination.email = email
             destination.password = password
+            destination.userID = userID
         }
     }
 

@@ -32,7 +32,7 @@ class ProjectsTableViewCell: UITableViewCell {
             topLabel.text = transaction.client
             bottomLabel.text = transaction.address
         }
-        statusLabel.text = "Status: \(transaction.status)"
+        statusLabel.text = "Status: \(transaction.status.rawValue)"
     }
 
 } //End of class
