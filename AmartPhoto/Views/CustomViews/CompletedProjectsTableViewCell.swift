@@ -10,12 +10,12 @@ import UIKit
 class CompletedProjectsTableViewCell: UITableViewCell {
     
     //MARK: - Outlets
-    @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     
     //MARK: - Properties
-    var myString: String? {
+    var transaction: Transaction? {
         didSet {
             updateViews()
         }
@@ -23,10 +23,17 @@ class CompletedProjectsTableViewCell: UITableViewCell {
     
     //MARK: - Helper Methods
     func updateViews() {
-        guard let myString = myString else {return}
-        addressLabel.text = myString
+        guard let transaction = transaction else {return}
+        guard let currentUser = UserController.shared.currentUser else {return}
+        if currentUser.role == .client {
+            topLabel.text = transaction.address
+            bottomLabel.text = transaction.city
+        } else if currentUser.role == .admin {
+            topLabel.text = transaction.client
+            bottomLabel.text = transaction.address
+        }
+        statusLabel.text = "Status: \(transaction.status.rawValue)"
     }
-    
     
 } //End of class
 

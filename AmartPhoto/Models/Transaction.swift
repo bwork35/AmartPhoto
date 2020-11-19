@@ -25,9 +25,8 @@ class Transaction {
     var package: String
     var addOns: [String]
     var notes: String
-    var timestamp: Date
     
-    init(id: String, status: Status, client: String, address: String, city: String, state: String, zip: String, sqFeet: String, isVacant: Bool, homeOwnerPhone: String, dateOne: String, timeOne: TimeOfDay, dateTwo: String, timeTwo: TimeOfDay, package: String, addOns: [String], notes: String, timestamp: Date = Date()) {
+    init(id: String = UUID().uuidString, status: Status, client: String, address: String, city: String, state: String, zip: String, sqFeet: String, isVacant: Bool, homeOwnerPhone: String, dateOne: String, timeOne: TimeOfDay, dateTwo: String, timeTwo: TimeOfDay, package: String, addOns: [String], notes: String) {
         self.id = id
         self.status = status
         self.client = client
@@ -45,7 +44,6 @@ class Transaction {
         self.package = package
         self.addOns = addOns
         self.notes = notes
-        self.timestamp = timestamp
     }
     
     enum Status: String, CaseIterable, Codable, Hashable {
@@ -59,11 +57,10 @@ class Transaction {
         case afternoon = "Afternoon"
         case any = "Any"
     }
-    
 } //End of class
 
 extension Transaction: Equatable {
     static func == (lhs: Transaction, rhs: Transaction) -> Bool {
-        return lhs.id == rhs.id && lhs.status == rhs.status && lhs.client == rhs.client && lhs.address == rhs.address && lhs.city == rhs.city && lhs.state == rhs.state && lhs.zip == rhs.zip && lhs.sqFeet == rhs.sqFeet && lhs.isVacant == rhs.isVacant && lhs.homeOwnerPhone == rhs.homeOwnerPhone && lhs.dateOne == rhs.dateOne && lhs.timeOne == rhs.timeOne && lhs.dateTwo == rhs.dateTwo && lhs.timeTwo == rhs.timeTwo && lhs.package == rhs.package && lhs.addOns == rhs.addOns && lhs.notes == rhs.notes && lhs.timestamp == rhs.timestamp
+        return lhs.id == rhs.id && lhs.status == rhs.status && lhs.client == rhs.client && lhs.address == rhs.address && lhs.city == rhs.city && lhs.state == rhs.state && lhs.zip == rhs.zip && lhs.sqFeet == rhs.sqFeet && lhs.isVacant == rhs.isVacant && lhs.homeOwnerPhone == rhs.homeOwnerPhone && lhs.dateOne == rhs.dateOne && lhs.timeOne == rhs.timeOne && lhs.dateTwo == rhs.dateTwo && lhs.timeTwo == rhs.timeTwo && lhs.package == rhs.package && lhs.addOns == rhs.addOns && lhs.notes == rhs.notes
     }
 } //End of extension

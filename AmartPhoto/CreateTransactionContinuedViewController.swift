@@ -70,9 +70,21 @@ class CreateTransactionContinuedViewController: UIViewController, UICollectionVi
         
         //        TransactionController.shared.createTransaction(client: client, address: address, city: city, state: state, zip: zipcode, sqFeet: sqft, isVacant: homeIsVacant, homeOwnerPhone: phoneNumber, dateOne: dateOne, timeOne: timeOne, dateTwo: dateTwo, timeTwo: timeTwo, package: package, addOns: addOns, notes: notes)
         
-        TransactionController.shared.saveTransaction(status: status, client: client, address: address, city: city, state: state, zip: zipcode, sqFeet: sqft, isVacant: homeIsVacant, homeOwnerPhone: phoneNumber, dateOne: dateOne, timeOne: tod1, dateTwo: dateTwo, timeTwo: tod2, package: package, addOns: addOns, notes: notes) {
-            self.navigationController?.popToRootViewController(animated: true)
+//        TransactionController.shared.saveTransaction(id: "", status: status, client: client, address: address, city: city, state: state, zip: zipcode, sqFeet: sqft, isVacant: homeIsVacant, homeOwnerPhone: phoneNumber, dateOne: dateOne, timeOne: tod1, dateTwo: dateTwo, timeTwo: tod2, package: package, addOns: addOns, notes: notes) {
+//            self.navigationController?.popToRootViewController(animated: true)
+//        }
+        
+        TransactionController.shared.createTransaction(client: client, address: address, city: city, state: state, zip: zipcode, sqFeet: sqft, isVacant: homeIsVacant, homeOwnerPhone: phoneNumber, dateOne: dateOne, timeOne: timeOne, dateTwo: dateTwo, timeTwo: timeTwo, package: package, addOns: addOns, notes: notes) { (result) in
+            switch result {
+            case .success(let transaction):
+                TransactionController.shared.saveTransaction(transaction: transaction) {
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+            case .failure(_):
+                print("Error creating Transaction.")
+            }
         }
+        
     }
     
     //MARK: - Helper Methods
