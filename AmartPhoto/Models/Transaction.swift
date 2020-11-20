@@ -25,8 +25,9 @@ class Transaction {
     var package: String
     var addOns: [String]
     var notes: String
+    var timestamp: Date
     
-    init(id: String = UUID().uuidString, status: Status, client: String, address: String, city: String, state: String, zip: String, sqFeet: String, isVacant: Bool, homeOwnerPhone: String, dateOne: String, timeOne: TimeOfDay, dateTwo: String, timeTwo: TimeOfDay, package: String, addOns: [String], notes: String) {
+    init(id: String = UUID().uuidString, status: Status, client: String, address: String, city: String, state: String, zip: String, sqFeet: String, isVacant: Bool, homeOwnerPhone: String, dateOne: String, timeOne: TimeOfDay, dateTwo: String, timeTwo: TimeOfDay, package: String, addOns: [String], notes: String, timestamp: Date = Date()) {
         self.id = id
         self.status = status
         self.client = client
@@ -44,6 +45,7 @@ class Transaction {
         self.package = package
         self.addOns = addOns
         self.notes = notes
+        self.timestamp = timestamp
     }
     
     enum Status: String, CaseIterable, Codable, Hashable {

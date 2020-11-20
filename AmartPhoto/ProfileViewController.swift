@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
     
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -37,7 +37,30 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //MARK: - Actions
     @IBAction func editButtonTapped(_ sender: Any) {
+        let alertController = UIAlertController(title: "Select an image", message: "From where would you like to select an image?", preferredStyle: .alert)
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (_) in
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate = self
+            imagePickerController.sourceType = .camera
+            imagePickerController.allowsEditing = true
+            self.present(imagePickerController, animated: true, completion: nil)
+        }
+        
+        let libraryAction = UIAlertAction(title: "Photo Library", style: .default) { (_) in
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate = self
+            imagePickerController.sourceType = .photoLibrary
+            imagePickerController.allowsEditing = true
+            self.present(imagePickerController, animated: true, completion: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(cameraAction)
+        alertController.addAction(libraryAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
     }
+    
     @IBAction func logOutButtonTapped(_ sender: Any) {
         UserController.shared.logOutUser()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -58,6 +81,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             brokerageView.isHidden = true
         }
         numProjectsCompletedLabel.text = "\(TransactionController.shared.confirmedTransactions.count)"
+        if let userImage = user.image {
+            profileImage.image = userImage
+            profileImage.layer.cornerRadius = profileImage.frame.height / 2
+            profileImage.clipsToBounds = true 
+        }
     }
 
     //MARK: - Table View Data Source
@@ -83,3 +111,25 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 } //End of class
+
+extension ProfileViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        var selectedImage = UIImage()
+        if let img = info[.editedImage] as? UIImage {
+            selectedImage = img
+        } else if let img = info[.originalImage] as? UIImage {
+            selectedImage = img
+        }
+        
+        profileImage.image = selectedImage
+        profileImage.layer.cornerRadius = profileImage.frame.height / 2
+        profileImage.clipsToBounds = true
+        
+        guard let user = UserController.shared.currentUser else {return}
+        user.image = selectedImage
+        UserController.shared.updateUserImage()
+        
+        dismiss(animated: true, completion: nil)
+    }
+} //End of extension

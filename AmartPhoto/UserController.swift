@@ -14,6 +14,7 @@ class UserController {
     static let shared = UserController()
     var currentUser: User?
     let db = Firestore.firestore()
+    let storage = Storage.storage()
     
     //MARK: - CRUD
     //Create
@@ -25,6 +26,7 @@ class UserController {
     func recreateUser(id: String, firstName: String, lastName: String, email: String, brokerage: String, phoneNumber: String, role: User.Role, transactions: [String]) {
         let newUser = User(id: id, firstName: firstName, lastName: lastName, email: email, brokerage: brokerage, phoneNumber: phoneNumber, role: role, transactions: transactions, image: nil, brokerImage: nil)
         currentUser = newUser
+        fetchUserImage()
     }
     
     func authUser(email: String, password: String, completion: @escaping (Result<String, Error>) -> Void) {
@@ -65,50 +67,6 @@ class UserController {
         }
     }
     
-//    func authAndCreateUser(email: String, password: String, firstName: String, lastName: String, brokerage: String, phoneNumber: String, role: String, completion: @escaping () -> Void) {
-//        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-//            if let error = error {
-//                print("There was an error authenticating a new user -- \(error) -- \(error.localizedDescription)")
-//            } else {
-////                guard let user = Auth.auth().currentUser else {return}
-////                let id = user.uid
-////                print(id)
-//                self.db.collection("users").addDocument(data: [
-//                    "firstName": firstName,
-//                    "lastName": lastName,
-//                    "email": email,
-//                    "brokerage": brokerage,
-//                    "phoneNumber": phoneNumber,
-//                    "role": role,
-//                    "transactions": []
-//                ]) { (error) in
-//                    if let error = error {
-//                        print("There was an error saving to firestore -- \(error) -- \(error.localizedDescription)")
-//                    } else {
-//                        var accountType: User.Role = .client
-//                        if role == "Client" {
-//                            accountType = .client
-//                        } else if role == "Administrator" {
-//                            accountType = .admin
-//                        }
-//                        self.createUser(id: "", firstName: firstName, lastName: lastName, email: email, brokerage: brokerage, phoneNumber: phoneNumber, role: accountType)
-//                        completion()
-//                    }
-//                }
-//            }
-//        }
-//    }
-    
-//    func authUser(email: String, password: String) {
-//        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-//            if let error = error {
-//                print("There was an error authenticating a new user -- \(error) -- \(error.localizedDescription)")
-//            } else {
-//                print(authResult as Any)
-//            }
-//        }
-//    }
-    
     //Read (Fetch)
     func fetchUser(email: String, completion: @escaping () -> Void) {
         db.collection("users").whereField("email", isEqualTo: email)
@@ -133,6 +91,21 @@ class UserController {
             }
     }
     
+    func fetchUserImage() {
+        guard let user = currentUser else {return}
+        let storageRef = storage.reference(withPath: "userImages/\(user.id).jpg")
+        storageRef.getData(maxSize: 4 * 1024 * 1024) { [weak self] (data, error) in
+            if let error = error {
+                print("There was an error downloaing image -- \(error) -- \(error.localizedDescription)")
+            }
+            if let data = data {
+                self?.currentUser?.image = UIImage(data: data)
+            } else {
+                self?.currentUser?.image = nil
+            }
+        }
+    }
+    
     func signInUser(email: String, password: String, completion: @escaping () -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
@@ -153,18 +126,6 @@ class UserController {
     }
     
     //Update
-//    func updateUser(user: User, firstName: String, lastName: String, email: String, brokerage: String, phoneNumber: String, role: User.Role, transactions: [String], image: UIImage?, brokerImage: UIImage?) {
-//        user.firstName = firstName
-//        user.lastName = lastName
-//        user.email = email
-//        user.brokerage = brokerage
-//        user.phoneNumber = phoneNumber
-//        user.role = role
-//        user.transactions = transactions
-//        user.image = image
-//        user.brokerImage = brokerImage
-//    }
-    
     func updateUserTransactions(completion: @escaping () -> Void) {
         guard let user = currentUser else {return}
         let userRef = db.collection("users").document(user.id)
@@ -178,6 +139,21 @@ class UserController {
                 print("Document successfully updated")
                 completion()
             }
+        }
+    }
+    
+    func updateUserImage() {
+        guard let user = currentUser else {return}
+        let storageRef = storage.reference(withPath: "userImages/\(user.id).jpg")
+        guard let imageData = user.image?.jpegData(compressionQuality: 0.75) else {return}
+        let uploadMetadata = StorageMetadata.init()
+        uploadMetadata.contentType = "image/jpeg"
+        
+        storageRef.putData(imageData, metadata: uploadMetadata) { (downloadMetadata, error) in
+            if let error = error {
+                print("There was an error uploading image -- \(error) -- \(error.localizedDescription)")
+            }
+            print("Complete: \(String(describing: downloadMetadata))")
         }
     }
     

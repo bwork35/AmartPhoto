@@ -63,7 +63,7 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
         
         cell.transaction = TransactionController.shared.transactions[indexPath.row]
         
-        print("*\n*\n*\(cell.transaction?.id)\n*\n*\n")
+        print("*\n*\n*\(cell.transaction?.id)\n\(cell.transaction?.timestamp)\n*\n*\n")
         
         return cell
     }

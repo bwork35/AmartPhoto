@@ -6,6 +6,7 @@ target 'AmartPhoto' do
   # Pods for AmartPhoto
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
   
 
   target 'AmartPhotoTests' do
