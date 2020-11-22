@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpContinuedViewController: UIViewController {
+class SignUpContinuedViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: - Outlets
     @IBOutlet weak var accountTypeSegmentedControl: UISegmentedControl!
@@ -27,6 +27,7 @@ class SignUpContinuedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
+        phoneNumberTextField.delegate = self
     }
     
     //MARK: - Actions
@@ -91,6 +92,28 @@ class SignUpContinuedViewController: UIViewController {
     
     @objc func keyboardWillHide(notification: NSNotification) {
         self.view.frame.origin.y = 0
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        var strText: String? = textField.text
+        if strText == nil {
+            strText = ""
+        }
+        
+//        if strText!.count > 1 && strText!.count % 4 == 0 && string != "" {
+//            textField.text = "\(textField.text!)-\(string)"
+//            return false
+//        }
+        
+        if strText!.count == 3 || strText!.count == 7 {
+            textField.text = "\(textField.text!)-\(string)"
+            return false
+        }
+        
+        let maxLength = 12
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
     }
     
     /*
