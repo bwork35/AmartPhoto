@@ -14,20 +14,31 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var continueButton: AmartButton!
     
     //MARK: - Properties
     var userID: String?
+    var firstNameIsEmpty = true
+    var lastNameIsEmpty = true
+    var emailIsEmpty = true
+    var passwordIsEmpty = true
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
+        continueButton.isEnabled = false
+        
+        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     //MARK: - Actions
     @IBAction func continueButtonTapped(_ sender: Any) {
-//        guard let firstName = firstNameTextField.text, !firstName.isEmpty else {return}
-//        guard let lastName = lastNameTextField.text, !lastName.isEmpty else {return}
+        guard let firstName = firstNameTextField.text, !firstName.isEmpty else {return}
+        guard let lastName = lastNameTextField.text, !lastName.isEmpty else {return}
         guard let email = emailTextField.text, !email.isEmpty else {return}
         guard let password = passwordTextField.text, !password.isEmpty else {return}
         
@@ -87,3 +98,103 @@ class SignUpViewController: UIViewController {
     }
 
 } //End of class
+
+extension SignUpViewController: UITextFieldDelegate {
+    
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        if textField == firstNameTextField {
+//            guard let text = textField.text else {return}
+//            if text.isEmpty {
+//                firstNameIsEmpty = true
+//            } else {
+//                firstNameIsEmpty = false
+//            }
+//        } else if textField == lastNameTextField {
+//            guard let text = textField.text else {return}
+//            if text.isEmpty {
+//                lastNameIsEmpty = true
+//            } else {
+//                lastNameIsEmpty = false
+//            }
+//        } else if textField == emailTextField {
+//            guard let text = textField.text else {return}
+//            if text.isEmpty {
+//                emailIsEmpty = true
+//            } else {
+//                emailIsEmpty = false
+//            }
+//        } else if textField == passwordTextField {
+//            guard let text = textField.text else {return}
+//            if text.isEmpty {
+//                passwordIsEmpty = true
+//            } else {
+//                passwordIsEmpty = false
+//            }
+//        }
+//
+//        if (firstNameIsEmpty ==  false) && (lastNameIsEmpty ==  false) && (emailIsEmpty ==  false) && (passwordIsEmpty == false) {
+//            continueButton.isEnabled = true
+//        } else {
+//            continueButton.isEnabled = false
+//        }
+        
+        
+//        switch textField {
+//        case firstNameTextField:
+//            print("firstName")
+//        case lastNameTextField:
+//            print("lastName")
+//        case emailTextField:
+//            print("email")
+//        case passwordTextField:
+//            print("password")
+//        default:
+//            print("uh oh")
+//        }
+//
+//
+//    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        switch textField {
+        case firstNameTextField:
+            guard let text = textField.text else {return false}
+            if string == "" && text.count == 1 {
+                firstNameIsEmpty = true
+            } else {
+                firstNameIsEmpty = false
+            }
+        case lastNameTextField:
+            guard let text = textField.text else {return false}
+            if string == "" && text.count == 1 {
+                lastNameIsEmpty = true
+            } else {
+                lastNameIsEmpty = false
+            }
+        case emailTextField:
+            guard let text = textField.text else {return false}
+            if string == "" && text.count == 1 {
+                emailIsEmpty = true
+            } else {
+                emailIsEmpty = false
+            }
+        case passwordTextField:
+            guard let text = textField.text else {return false}
+            if string == "" && text.count == 1 {
+                passwordIsEmpty = true
+            } else {
+                passwordIsEmpty = false
+            }
+        default:
+            print("uh oh")
+        }
+        
+        if (firstNameIsEmpty ==  false) && (lastNameIsEmpty ==  false) && (emailIsEmpty ==  false) && (passwordIsEmpty == false) {
+            continueButton.isEnabled = true
+        } else {
+            continueButton.isEnabled = false
+        }
+        
+        return true
+    }
+} //End of extension

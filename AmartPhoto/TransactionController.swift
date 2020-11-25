@@ -121,6 +121,7 @@ class TransactionController {
                 print("Error getting documents: \(error)")
             } else {
                 self.transactions = []
+                self.confirmedTransactions = []
                 guard let documents = querySnapshot?.documents else {return}
                 let group = DispatchGroup()
                 for doc in documents {

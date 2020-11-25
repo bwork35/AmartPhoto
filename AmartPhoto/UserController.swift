@@ -37,7 +37,7 @@ class UserController {
             } else {
                 guard let user = Auth.auth().currentUser else {return}
                 let id = user.uid
-                print(id)
+                print("AuthUser: \(id)")
                 completion(.success(id))
             }
         }

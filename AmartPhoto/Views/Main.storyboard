@@ -169,6 +169,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="nyK-Dm-n3z"/>
                     <connections>
+                        <outlet property="continueButton" destination="hD4-Om-qwy" id="wnr-M7-byX"/>
                         <outlet property="emailTextField" destination="H6h-Qe-9n7" id="ev1-BT-UrP"/>
                         <outlet property="firstNameTextField" destination="Nxp-19-dCU" id="RTZ-cS-Hhb"/>
                         <outlet property="lastNameTextField" destination="vN7-LV-fDV" id="gOL-FL-Kc3"/>
@@ -209,17 +210,6 @@
                                     <action selector="accountTypeSegmentedControlChanged:" destination="3xA-vU-cJH" eventType="valueChanged" id="NM9-l0-iqn"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5f1-HY-iSl" customClass="AmartButton" customModule="AmartPhoto" customModuleProvider="target">
-                                <rect key="frame" x="83" y="606" width="248" height="50"/>
-                                <color key="backgroundColor" red="0.63829082250000002" green="0.82843667269999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Sph-kX-8qY"/>
-                                </constraints>
-                                <state key="normal" title="Sign Up"/>
-                                <connections>
-                                    <action selector="signUpButtonTapped:" destination="3xA-vU-cJH" eventType="touchUpInside" id="hbt-OA-wQf"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czp-BJ-hJp" userLabel="View--Client">
                                 <rect key="frame" x="0.0" y="327" width="414" height="179"/>
                                 <subviews>
@@ -260,17 +250,56 @@
                                     <constraint firstItem="VGs-bu-6RJ" firstAttribute="centerX" secondItem="czp-BJ-hJp" secondAttribute="centerX" id="wvf-MQ-J94"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5f1-HY-iSl" customClass="AmartButton" customModule="AmartPhoto" customModuleProvider="target">
+                                <rect key="frame" x="83" y="606" width="248" height="50"/>
+                                <color key="backgroundColor" red="0.63829082250000002" green="0.82843667269999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Sph-kX-8qY"/>
+                                </constraints>
+                                <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="signUpButtonTapped:" destination="3xA-vU-cJH" eventType="touchUpInside" id="hbt-OA-wQf"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BcN-xm-QL0" userLabel="View--Admin">
+                                <rect key="frame" x="0.0" y="327" width="414" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmS-8x-HME">
+                                        <rect key="frame" x="52" y="15" width="78" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fr6-Ta-bAb">
+                                        <rect key="frame" x="52" y="41" width="310.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Fr6-Ta-bAb" firstAttribute="top" secondItem="cmS-8x-HME" secondAttribute="bottom" constant="5" id="5wb-lB-goq"/>
+                                    <constraint firstAttribute="height" constant="128" id="Eig-E7-q9w"/>
+                                    <constraint firstItem="Fr6-Ta-bAb" firstAttribute="width" secondItem="BcN-xm-QL0" secondAttribute="width" multiplier="0.75" id="ILi-xR-85g"/>
+                                    <constraint firstItem="cmS-8x-HME" firstAttribute="top" secondItem="BcN-xm-QL0" secondAttribute="top" constant="15" id="faz-ay-Lxl"/>
+                                    <constraint firstItem="Fr6-Ta-bAb" firstAttribute="leading" secondItem="cmS-8x-HME" secondAttribute="leading" id="gkV-vt-DVX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="N2g-c5-M8N"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="cmS-8x-HME" firstAttribute="leading" secondItem="5Om-mF-BXq" secondAttribute="leading" id="8Sj-fM-C89"/>
+                            <constraint firstItem="BcN-xm-QL0" firstAttribute="leading" secondItem="N2g-c5-M8N" secondAttribute="leading" id="9jH-33-h5j"/>
                             <constraint firstItem="czp-BJ-hJp" firstAttribute="top" secondItem="MRO-mQ-s9M" secondAttribute="bottom" constant="30" id="B94-YI-xne"/>
                             <constraint firstItem="5f1-HY-iSl" firstAttribute="centerX" secondItem="N2g-c5-M8N" secondAttribute="centerX" id="ChA-lV-AV9"/>
                             <constraint firstItem="5f1-HY-iSl" firstAttribute="top" secondItem="czp-BJ-hJp" secondAttribute="bottom" constant="100" id="CpI-Ph-fyD"/>
+                            <constraint firstItem="BcN-xm-QL0" firstAttribute="top" secondItem="MRO-mQ-s9M" secondAttribute="bottom" constant="30" id="FHh-9Y-0rY"/>
                             <constraint firstItem="5f1-HY-iSl" firstAttribute="width" secondItem="7SN-WE-zAr" secondAttribute="width" multiplier="0.6" id="FIn-Zj-tBT"/>
                             <constraint firstItem="hwM-qc-zEQ" firstAttribute="centerX" secondItem="N2g-c5-M8N" secondAttribute="centerX" id="GKM-bU-aSS"/>
                             <constraint firstItem="5Om-mF-BXq" firstAttribute="leading" secondItem="fe8-Kl-qZm" secondAttribute="leading" id="GW5-4e-hbr"/>
                             <constraint firstItem="MRO-mQ-s9M" firstAttribute="width" secondItem="7SN-WE-zAr" secondAttribute="width" multiplier="0.55" id="KR7-fr-BEU"/>
+                            <constraint firstItem="N2g-c5-M8N" firstAttribute="trailing" secondItem="BcN-xm-QL0" secondAttribute="trailing" id="QZf-QX-pq4"/>
                             <constraint firstItem="hwM-qc-zEQ" firstAttribute="top" secondItem="N2g-c5-M8N" secondAttribute="top" constant="55" id="T0a-oQ-0B0"/>
                             <constraint firstItem="MRO-mQ-s9M" firstAttribute="centerX" secondItem="N2g-c5-M8N" secondAttribute="centerX" id="YPV-UG-CZk"/>
                             <constraint firstItem="czp-BJ-hJp" firstAttribute="height" secondItem="7SN-WE-zAr" secondAttribute="height" multiplier="0.2" id="oFi-00-cSf"/>
@@ -283,8 +312,10 @@
                     <navigationItem key="navigationItem" id="kqR-H4-FO4"/>
                     <connections>
                         <outlet property="accountTypeSegmentedControl" destination="MRO-mQ-s9M" id="Poi-yH-aHg"/>
+                        <outlet property="adminInfoView" destination="BcN-xm-QL0" id="UhL-YA-03y"/>
                         <outlet property="brokerageTextField" destination="HgF-vD-ebI" id="pj1-8v-Zcc"/>
                         <outlet property="clientInfoView" destination="czp-BJ-hJp" id="TeP-Ti-KC6"/>
+                        <outlet property="companyTextField" destination="Fr6-Ta-bAb" id="2EB-n7-7oS"/>
                         <outlet property="phoneNumberTextField" destination="VGs-bu-6RJ" id="i9V-Ww-Mow"/>
                     </connections>
                 </viewController>

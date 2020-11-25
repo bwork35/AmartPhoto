@@ -14,13 +14,19 @@ class SignUpContinuedViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var brokerageTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var clientInfoView: UIView!
+    @IBOutlet weak var adminInfoView: UIView!
+    @IBOutlet weak var companyTextField: UITextField!
     
     //MARK: - Properties
     var firstName: String?
     var lastName: String?
     var email: String?
     var password: String?
-    var userID: String?
+    var userID: String? {
+        didSet {
+            print("userID set")
+        }
+    }
     var role: User.Role = .client
     
     //MARK: - Lifecycles
@@ -28,6 +34,7 @@ class SignUpContinuedViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         setUpView()
         phoneNumberTextField.delegate = self
+        adminInfoView.isHidden = true
     }
     
     //MARK: - Actions
@@ -36,9 +43,11 @@ class SignUpContinuedViewController: UIViewController, UITextFieldDelegate {
         case 1:
             role = .admin
             clientInfoView.isHidden = true
+            adminInfoView.isHidden = false
         default:
             role = .client
             clientInfoView.isHidden = false
+            adminInfoView.isHidden = true
         }
     }
     
@@ -53,8 +62,10 @@ class SignUpContinuedViewController: UIViewController, UITextFieldDelegate {
         if let number = phoneNumberTextField.text {
             phoneNumber = number
         }
-        if let company = brokerageTextField.text {
+        if let company = brokerageTextField.text, !company.isEmpty {
             brokerage = company
+        } else if let company = companyTextField.text, !company.isEmpty {
+            brokerage = company 
         }
 //        let accountType: User.Role = role
         let accountType = role.rawValue
@@ -95,25 +106,24 @@ class SignUpContinuedViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        var strText: String? = textField.text
-        if strText == nil {
-            strText = ""
+        if textField == phoneNumberTextField {
+            var strText: String? = textField.text
+            if strText == nil {
+                strText = ""
+            }
+            if string == "" {
+                return true
+            }
+            if strText!.count == 3 || strText!.count == 7 {
+                textField.text = "\(textField.text!)-\(string)"
+                return false
+            }
+            let maxLength = 12
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
         }
-        
-//        if strText!.count > 1 && strText!.count % 4 == 0 && string != "" {
-//            textField.text = "\(textField.text!)-\(string)"
-//            return false
-//        }
-        
-        if strText!.count == 3 || strText!.count == 7 {
-            textField.text = "\(textField.text!)-\(string)"
-            return false
-        }
-        
-        let maxLength = 12
-        let currentString: NSString = textField.text! as NSString
-        let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
-        return newString.length <= maxLength
+        return true
     }
     
     /*
