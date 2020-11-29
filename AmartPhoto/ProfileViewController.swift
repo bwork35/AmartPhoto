@@ -41,7 +41,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        menuIsOut = false 
+        menuIsOut = false
         menuViewTrailingConstraint.constant = -280
         backgroundView.isHidden = true
     }
@@ -137,14 +137,20 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             destination.transaction = transactionToSend
         } else if segue.identifier == "profileToMenuView" {
             guard let destination = segue.destination as? MenuViewController else {return}
-            destination.menuDelegate = self
-        } 
+            destination.menuSegueDelegate = self
+        } else if segue.identifier == "privacyPolicyToInfoVC" {
+            guard let destination = segue.destination as? InformationViewController else {return}
+            destination.isTermsAndConditions = false
+        } else if segue.identifier == "termsAndConditionsToInfoVC" {
+            guard let destination = segue.destination as? InformationViewController else {return}
+            destination.isTermsAndConditions = true
+        }
     }
 } //End of class
 
-extension ProfileViewController: MenuViewControllerDelegate {
-    func hideMenu() {
-        toggleMenuView()
+extension ProfileViewController: MenuSegueControllerDelegate {
+    func segueWithString(id: String) {
+        self.performSegue(withIdentifier: id, sender: self)
     }
 } //End of extension
 

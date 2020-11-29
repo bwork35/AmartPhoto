@@ -7,8 +7,8 @@
 
 import UIKit
 
-protocol MenuViewControllerDelegate: AnyObject {
-    func hideMenu()
+protocol MenuSegueControllerDelegate: AnyObject {
+    func segueWithString(id: String)
 }
 
 class MenuViewController: UIViewController {
@@ -16,7 +16,7 @@ class MenuViewController: UIViewController {
     //MARK: - Outlets
     
     //MARK: - Properties
-    weak var menuDelegate: MenuViewControllerDelegate?
+    weak var menuSegueDelegate: MenuSegueControllerDelegate?
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
@@ -33,25 +33,19 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func termsAndConditionsButtonTapped(_ sender: Any) {
-        self.menuDelegate?.hideMenu()
+        self.menuSegueDelegate?.segueWithString(id: "termsAndConditionsToInfoVC")
     }
     
     @IBAction func privacyPolicyButtonTapped(_ sender: Any) {
-        self.menuDelegate?.hideMenu()
+        self.menuSegueDelegate?.segueWithString(id: "privacyPolicyToInfoVC")
     }
     
     //MARK: - Helper Methods
-    
 
-    
+    /*
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "privacyPolicyToInfoVC" {
-            guard let destination = segue.destination as? InformationViewController else {return}
-            destination.isTermsAndConditions = false
-        } else if segue.identifier == "termsAndConditionsToInfoVC" {
-            guard let destination = segue.destination as? InformationViewController else {return}
-            destination.isTermsAndConditions = true
-        }
     }
+    */
+    
 } //End of class
