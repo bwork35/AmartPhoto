@@ -16,12 +16,12 @@ class SignUpContinuedViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var clientInfoView: UIView!
     @IBOutlet weak var adminInfoView: UIView!
     @IBOutlet weak var companyTextField: UITextField!
+    @IBOutlet weak var signUpButton: AmartButton!
     
     //MARK: - Properties
     var firstName: String?
     var lastName: String?
     var email: String?
-    var password: String?
     var userID: String? {
         didSet {
             print("userID set")
@@ -55,28 +55,24 @@ class SignUpContinuedViewController: UIViewController, UITextFieldDelegate {
         guard let firstName = firstName else {return}
         guard let lastName = lastName else {return}
         guard let email = email else {return}
-        guard let password = password else {return}
         guard let userID = userID else {return}
         var phoneNumber = ""
-        var brokerage = ""
+        var institution = ""
         if let number = phoneNumberTextField.text {
             phoneNumber = number
         }
         if let company = brokerageTextField.text, !company.isEmpty {
-            brokerage = company
+            institution = company
         } else if let company = companyTextField.text, !company.isEmpty {
-            brokerage = company 
+            institution = company
         }
-//        let accountType: User.Role = role
         let accountType = role.rawValue
         
-        UserController.shared.saveUser(id: userID, email: email, firstName: firstName, lastName: lastName, brokerage: brokerage, phoneNumber: phoneNumber, role: accountType) {
+        signUpButton.isEnabled = false
+        
+        UserController.shared.saveUser(id: userID, email: email, firstName: firstName, lastName: lastName, institution: institution, phoneNumber: phoneNumber, role: accountType) {
             self.presentTransactionListVC()
         }
-        
-//        UserController.shared.authAndCreateUser(email: email, password: password, firstName: firstName, lastName: lastName, brokerage: brokerage, phoneNumber: phoneNumber, role: accountType) {
-//            self.presentTransactionListVC()
-//        }
     }
     
     //MARK: - Helper Methods

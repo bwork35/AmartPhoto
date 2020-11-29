@@ -116,7 +116,7 @@ class TransactionController {
     }
     
     func fetchAllTransactions(completion: @escaping () -> Void) {
-        db.collection("transactions").getDocuments() { (querySnapshot, error) in
+        db.collection("transactions").addSnapshotListener { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
             } else {

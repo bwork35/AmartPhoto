@@ -17,7 +17,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var continueButton: AmartButton!
     
     //MARK: - Properties
-    var userID: String?
+//    var userID: String?
     var firstNameIsEmpty = true
     var lastNameIsEmpty = true
     var emailIsEmpty = true
@@ -42,11 +42,13 @@ class SignUpViewController: UIViewController {
         guard let email = emailTextField.text, !email.isEmpty else {return}
         guard let password = passwordTextField.text, !password.isEmpty else {return}
         
+        continueButton.isEnabled = false
+        
         UserController.shared.authUser(email: email, password: password) { (result) in
             switch result {
             case .success(let id):
-                self.userID = id
-                self.performSegue(withIdentifier: "signUpToSignUpContinued", sender: self)
+//                self.userID = id
+                self.presentSignUpContinuedVC(id: id)
             case .failure(_):
                 print("failure")
             }
@@ -61,6 +63,20 @@ class SignUpViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(CreateTransactionContinuedViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(CreateTransactionContinuedViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func presentSignUpContinuedVC(id: String) {
+        guard let firstName = firstNameTextField.text, !firstName.isEmpty else {return}
+        guard let lastName = lastNameTextField.text, !lastName.isEmpty else {return}
+        guard let email = emailTextField.text, !email.isEmpty else {return}
+        
+        guard let signUpContinuedVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "signUpVC2") as? SignUpContinuedViewController else {return}
+        signUpContinuedVC.modalPresentationStyle = .fullScreen
+        signUpContinuedVC.firstName = firstName
+        signUpContinuedVC.lastName = lastName
+        signUpContinuedVC.email = email
+        signUpContinuedVC.userID = id
+        self.present(signUpContinuedVC, animated: true, completion: nil)
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -81,20 +97,20 @@ class SignUpViewController: UIViewController {
 
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let firstName = firstNameTextField.text, !firstName.isEmpty else {return}
-        guard let lastName = lastNameTextField.text, !lastName.isEmpty else {return}
-        guard let email = emailTextField.text, !email.isEmpty else {return}
-        guard let password = passwordTextField.text, !password.isEmpty else {return}
-        guard let userID = userID else {return}
-        
-        if segue.identifier == "signUpToSignUpContinued" {
-            guard let destination = segue.destination as? SignUpContinuedViewController else {return}
-            destination.firstName = firstName
-            destination.lastName = lastName
-            destination.email = email
-            destination.password = password
-            destination.userID = userID
-        }
+//        guard let firstName = firstNameTextField.text, !firstName.isEmpty else {return}
+//        guard let lastName = lastNameTextField.text, !lastName.isEmpty else {return}
+//        guard let email = emailTextField.text, !email.isEmpty else {return}
+//        guard let password = passwordTextField.text, !password.isEmpty else {return}
+////        guard let userID = userID else {return}
+//
+//        if segue.identifier == "signUpToSignUpContinued" {
+//            guard let destination = segue.destination as? SignUpContinuedViewController else {return}
+//            destination.firstName = firstName
+//            destination.lastName = lastName
+//            destination.email = email
+//            destination.password = password
+////            destination.userID = userID
+//        }
     }
 
 } //End of class

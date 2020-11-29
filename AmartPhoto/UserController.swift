@@ -18,13 +18,13 @@ class UserController {
     
     //MARK: - CRUD
     //Create
-    func createUser(id: String, firstName: String, lastName: String, email: String, brokerage: String, phoneNumber: String, role: User.Role) {
-        let newUser = User(id: id, firstName: firstName, lastName: lastName, email: email, brokerage: brokerage, phoneNumber: phoneNumber, role: role, transactions: [], image: nil, brokerImage: nil)
+    func createUser(id: String, firstName: String, lastName: String, email: String, institution: String, phoneNumber: String, role: User.Role) {
+        let newUser = User(id: id, firstName: firstName, lastName: lastName, email: email, institution: institution, phoneNumber: phoneNumber, role: role, transactions: [], image: nil, brokerImage: nil)
         currentUser = newUser
     }
     
-    func recreateUser(id: String, firstName: String, lastName: String, email: String, brokerage: String, phoneNumber: String, role: User.Role, transactions: [String]) {
-        let newUser = User(id: id, firstName: firstName, lastName: lastName, email: email, brokerage: brokerage, phoneNumber: phoneNumber, role: role, transactions: transactions, image: nil, brokerImage: nil)
+    func recreateUser(id: String, firstName: String, lastName: String, email: String, institution: String, phoneNumber: String, role: User.Role, transactions: [String]) {
+        let newUser = User(id: id, firstName: firstName, lastName: lastName, email: email, institution: institution, phoneNumber: phoneNumber, role: role, transactions: transactions, image: nil, brokerImage: nil)
         currentUser = newUser
         fetchUserImage()
     }
@@ -43,13 +43,13 @@ class UserController {
         }
     }
     
-    func saveUser(id: String, email: String, firstName: String, lastName: String, brokerage: String, phoneNumber: String, role: String, completion: @escaping () -> Void) {
+    func saveUser(id: String, email: String, firstName: String, lastName: String, institution: String, phoneNumber: String, role: String, completion: @escaping () -> Void) {
         self.db.collection("users").document(id).setData([
             "id": id,
             "firstName": firstName,
             "lastName": lastName,
             "email": email,
-            "brokerage": brokerage,
+            "institution": institution,
             "phoneNumber": phoneNumber,
             "role": role,
             "transactions": []
@@ -61,7 +61,7 @@ class UserController {
                 if role == "Administrator" {
                     accountType = .admin
                 }
-                self.createUser(id: id, firstName: firstName, lastName: lastName, email: email, brokerage: brokerage, phoneNumber: phoneNumber, role: accountType)
+                self.createUser(id: id, firstName: firstName, lastName: lastName, email: email, institution: institution, phoneNumber: phoneNumber, role: accountType)
                 completion()
             }
         }
@@ -78,12 +78,12 @@ class UserController {
                     if !documents.isEmpty {
                         guard let doc = documents.first else {return}
                         let data = doc.data()
-                        guard let userID = data["id"] as? String, let firstName = data["firstName"] as? String, let lastName = data["lastName"] as? String, let email = data["email"] as? String, let brokerage = data["brokerage"] as? String, let phoneNumber = data["phoneNumber"] as? String, let role = data["role"] as? String, let transactions = data["transactions"] as? [String] else {return}
+                        guard let userID = data["id"] as? String, let firstName = data["firstName"] as? String, let lastName = data["lastName"] as? String, let email = data["email"] as? String, let institution = data["institution"] as? String, let phoneNumber = data["phoneNumber"] as? String, let role = data["role"] as? String, let transactions = data["transactions"] as? [String] else {return}
                         var accountType: User.Role = .client
                         if role == "Administrator" {
                             accountType = .admin
                         }
-                        self.recreateUser(id: userID, firstName: firstName, lastName: lastName, email: email, brokerage: brokerage, phoneNumber: phoneNumber, role: accountType, transactions: transactions)
+                        self.recreateUser(id: userID, firstName: firstName, lastName: lastName, email: email, institution: institution, phoneNumber: phoneNumber, role: accountType, transactions: transactions)
                         
                         completion()
                     }

@@ -133,7 +133,6 @@
                                 <state key="normal" title="Continue"/>
                                 <connections>
                                     <action selector="continueButtonTapped:" destination="gy0-x8-stf" eventType="touchUpInside" id="H84-bC-Goi"/>
-                                    <segue destination="3xA-vU-cJH" kind="show" identifier="signUpToSignUpContinued" id="i2Z-1T-fqY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -183,25 +182,25 @@
         <!--Sign Up Continued View Controller-->
         <scene sceneID="bRp-AO-eEG">
             <objects>
-                <viewController id="3xA-vU-cJH" customClass="SignUpContinuedViewController" customModule="AmartPhoto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signUpVC2" id="3xA-vU-cJH" customClass="SignUpContinuedViewController" customModule="AmartPhoto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7SN-WE-zAr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwM-qc-zEQ">
-                                <rect key="frame" x="143.5" y="143" width="127" height="42"/>
+                                <rect key="frame" x="143.5" y="99" width="127" height="42"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <color key="textColor" red="0.20318736070000001" green="0.32400669139999999" blue="0.72947731599999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Om-mF-BXq">
-                                <rect key="frame" x="52" y="235" width="110" height="21"/>
+                                <rect key="frame" x="52" y="191" width="110" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MRO-mQ-s9M">
-                                <rect key="frame" x="93" y="266" width="228" height="32"/>
+                                <rect key="frame" x="93" y="222" width="228" height="32"/>
                                 <segments>
                                     <segment title="Client"/>
                                     <segment title="Admin"/>
@@ -211,7 +210,7 @@
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czp-BJ-hJp" userLabel="View--Client">
-                                <rect key="frame" x="0.0" y="327" width="414" height="179"/>
+                                <rect key="frame" x="0.0" y="283" width="414" height="179"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brokerage:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fe8-Kl-qZm">
                                         <rect key="frame" x="52" y="15" width="83" height="21"/>
@@ -251,7 +250,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5f1-HY-iSl" customClass="AmartButton" customModule="AmartPhoto" customModuleProvider="target">
-                                <rect key="frame" x="83" y="606" width="248" height="50"/>
+                                <rect key="frame" x="83" y="562" width="248" height="50"/>
                                 <color key="backgroundColor" red="0.63829082250000002" green="0.82843667269999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Sph-kX-8qY"/>
@@ -262,7 +261,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BcN-xm-QL0" userLabel="View--Admin">
-                                <rect key="frame" x="0.0" y="327" width="414" height="128"/>
+                                <rect key="frame" x="0.0" y="283" width="414" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmS-8x-HME">
                                         <rect key="frame" x="52" y="15" width="78" height="21"/>
@@ -317,6 +316,7 @@
                         <outlet property="clientInfoView" destination="czp-BJ-hJp" id="TeP-Ti-KC6"/>
                         <outlet property="companyTextField" destination="Fr6-Ta-bAb" id="2EB-n7-7oS"/>
                         <outlet property="phoneNumberTextField" destination="VGs-bu-6RJ" id="i9V-Ww-Mow"/>
+                        <outlet property="signUpButton" destination="5f1-HY-iSl" id="WJ9-ef-gEJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wik-uv-oxX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

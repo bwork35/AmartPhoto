@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storage = Storage.storage()
         print(db)
         print(storage)
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
+            if let error = error {
+                print("There was an error when requesting authorization to send the user a notification - \(error) - \(error.localizedDescription)")
+            }
+            if success == true {
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            }
+        }
         
         return true
     }

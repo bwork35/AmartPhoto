@@ -32,7 +32,8 @@ class CreateTransactionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
-        phoneNumberTextField.delegate = self 
+        phoneNumberTextField.delegate = self
+        zipcodeTextField.delegate = self 
     }
     
     //MARK: - Actions
@@ -140,6 +141,11 @@ extension CreateTransactionViewController: UITextFieldDelegate {
                 return false
             }
             let maxLength = 12
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+        } else if textField == zipcodeTextField {
+            let maxLength = 5
             let currentString: NSString = textField.text! as NSString
             let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
             return newString.length <= maxLength

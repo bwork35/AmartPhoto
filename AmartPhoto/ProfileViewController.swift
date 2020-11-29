@@ -14,19 +14,23 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var brokerImage: UIImageView!
-    @IBOutlet weak var brokerageLabel: UILabel!
+    @IBOutlet weak var institutionLabel: UILabel!
     @IBOutlet weak var numProjectsCompletedLabel: UILabel!
     @IBOutlet weak var brokerageView: UIView!
+    @IBOutlet weak var menuView: UIView!
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var menuViewTrailingConstraint: NSLayoutConstraint!
     
     //MARK: - Properties
     var user: User?
-    var myArray = ["198 Apple Road", "400 Blueberry Lane", "225 Cherry Street"]
+    var menuIsOut = false
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        backgroundView.isHidden = true
         updateViews()
     }
     
@@ -35,7 +39,22 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.reloadData()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        menuIsOut = false 
+        menuViewTrailingConstraint.constant = -280
+        backgroundView.isHidden = true
+    }
+    
     //MARK: - Actions
+    @IBAction func menuButtonTapped(_ sender: Any) {
+        toggleMenuView()
+    }
+    
+    @IBAction func tappedOnBackgroundView(_ sender: Any) {
+        toggleMenuView()
+    }
+    
     @IBAction func editButtonTapped(_ sender: Any) {
         let alertController = UIAlertController(title: "Select an image", message: "From where would you like to select an image?", preferredStyle: .alert)
         
@@ -61,19 +80,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         present(alertController, animated: true)
     }
     
-    @IBAction func logOutButtonTapped(_ sender: Any) {
-        UserController.shared.logOutUser()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let viewController = storyboard.instantiateInitialViewController() else {return}
-        viewController.modalPresentationStyle = .fullScreen
-        self.present(viewController, animated: true)
-    }
-    
     //MARK: - Helper Methods
     func updateViews() {
         guard let user = UserController.shared.currentUser else {return}
         nameLabel.text = "\(user.firstName) \(user.lastName)"
-        brokerageLabel.text = user.brokerage
+        institutionLabel.text = user.institution
         if let profile = user.image {
             profileImage.image = profile
         }
@@ -85,6 +96,22 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             profileImage.image = userImage
             profileImage.layer.cornerRadius = profileImage.frame.height / 2
             profileImage.clipsToBounds = true 
+        }
+    }
+    
+    func toggleMenuView() {
+        if menuIsOut {
+            menuViewTrailingConstraint.constant = -280
+            backgroundView.isHidden = true
+        } else {
+            menuViewTrailingConstraint.constant = 0
+            backgroundView.isHidden = false
+        }
+        
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: {
+            self.view.layoutIfNeeded()
+        }) { (animationComplete) in
+            self.menuIsOut.toggle()
         }
     }
 
@@ -108,9 +135,18 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             guard let destination = segue.destination as? ProjectDetailViewController else {return}
             let transactionToSend = TransactionController.shared.confirmedTransactions[indexPath.row]
             destination.transaction = transactionToSend
-        }
+        } else if segue.identifier == "profileToMenuView" {
+            guard let destination = segue.destination as? MenuViewController else {return}
+            destination.menuDelegate = self
+        } 
     }
 } //End of class
+
+extension ProfileViewController: MenuViewControllerDelegate {
+    func hideMenu() {
+        toggleMenuView()
+    }
+} //End of extension
 
 extension ProfileViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
