@@ -17,6 +17,7 @@
 		9320AAA0254CC25500FA2E57 /* CreateTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320AA9F254CC25500FA2E57 /* CreateTransactionViewController.swift */; };
 		9320AAA5254F8EDB00FA2E57 /* CreateTransactionContinuedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320AAA4254F8EDA00FA2E57 /* CreateTransactionContinuedViewController.swift */; };
 		937E0003257365A200718E2F /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E0002257365A100718E2F /* InformationViewController.swift */; };
+		937E002D2575F87C00718E2F /* Notification.apns in Resources */ = {isa = PBXBuildFile; fileRef = 937E002C2575F87C00718E2F /* Notification.apns */; };
 		937EFFFB257346C100718E2F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937EFFFA257346C100718E2F /* MenuViewController.swift */; };
 		93A3BA102548E6AF0005257A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA0F2548E6AF0005257A /* AppDelegate.swift */; };
 		93A3BA122548E6AF0005257A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA112548E6AF0005257A /* SceneDelegate.swift */; };
@@ -75,6 +76,7 @@
 		9320AA9F254CC25500FA2E57 /* CreateTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTransactionViewController.swift; sourceTree = "<group>"; };
 		9320AAA4254F8EDA00FA2E57 /* CreateTransactionContinuedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTransactionContinuedViewController.swift; sourceTree = "<group>"; };
 		937E0002257365A100718E2F /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
+		937E002C2575F87C00718E2F /* Notification.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = Notification.apns; sourceTree = "<group>"; };
 		937EFFF2256E277400718E2F /* AmartPhoto.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AmartPhoto.entitlements; sourceTree = "<group>"; };
 		937EFFFA257346C100718E2F /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		93A3BA0C2548E6AF0005257A /* AmartPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmartPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,6 +230,7 @@
 				93A3BA1A2548E6B30005257A /* LaunchScreen.storyboard */,
 				93A3BA1D2548E6B30005257A /* Info.plist */,
 				93C613DC255A4D7800D7ECEC /* GoogleService-Info.plist */,
+				937E002C2575F87C00718E2F /* Notification.apns */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				937E002D2575F87C00718E2F /* Notification.apns in Resources */,
 				93C795652554B7610014DFD0 /* Main.storyboard in Resources */,
 				93A3BA1C2548E6B30005257A /* LaunchScreen.storyboard in Resources */,
 				93C613DD255A4D7800D7ECEC /* GoogleService-Info.plist in Resources */,
@@ -771,6 +775,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CYXP9477KA;
 				INFOPLIST_FILE = AmartPhoto/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -792,6 +797,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CYXP9477KA;
 				INFOPLIST_FILE = AmartPhoto/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
