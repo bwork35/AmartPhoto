@@ -27,13 +27,24 @@ class CreateTransactionViewController: UIViewController {
     var isVacant = false
     var preferredTime: Transaction.TimeOfDay = .morning
     var secondaryTime: Transaction.TimeOfDay = .morning
+    var addressIsEmpty = true
+    var cityIsEmpty = true
+    var stateIsEmpty = true
+    var zipcodeIsEmpty = true
+    var sqftIsEmpty = true
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
+        continueButton.isEnabled = false
+        
+        addressTextField.delegate = self
+        cityTextField.delegate = self
+        stateTextField.delegate = self
+        zipcodeTextField.delegate = self
+        sqftTextField.delegate = self
         phoneNumberTextField.delegate = self
-        zipcodeTextField.delegate = self 
     }
     
     //MARK: - Actions
@@ -128,6 +139,52 @@ class CreateTransactionViewController: UIViewController {
 
 extension CreateTransactionViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        switch textField {
+        case addressTextField:
+            guard let text = textField.text else {return false}
+            if string == "" && text.count == 1 {
+                addressIsEmpty = true
+            } else {
+                addressIsEmpty = false
+            }
+        case cityTextField:
+            guard let text = textField.text else {return false}
+            if string == "" && text.count == 1 {
+                cityIsEmpty = true
+            } else {
+                cityIsEmpty = false
+            }
+        case stateTextField:
+            guard let text = textField.text else {return false}
+            if string == "" && text.count == 1 {
+                stateIsEmpty = true
+            } else {
+                stateIsEmpty = false
+            }
+        case zipcodeTextField:
+            guard let text = textField.text else {return false}
+            if string == "" && text.count == 1 {
+                zipcodeIsEmpty = true
+            } else {
+                zipcodeIsEmpty = false
+            }
+        case sqftTextField:
+            guard let text = textField.text else {return false}
+            if string == "" && text.count == 1 {
+                sqftIsEmpty = true
+            } else {
+                sqftIsEmpty = false
+            }
+        default:
+            break
+        }
+        
+        if (addressIsEmpty ==  false) && (cityIsEmpty ==  false) && (stateIsEmpty ==  false) && (zipcodeIsEmpty == false) && (sqftIsEmpty == false) {
+            continueButton.isEnabled = true
+        } else {
+            continueButton.isEnabled = false
+        }
+        
         if textField == phoneNumberTextField {
             var strText: String? = textField.text
             if strText == nil {
@@ -150,6 +207,7 @@ extension CreateTransactionViewController: UITextFieldDelegate {
             let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
             return newString.length <= maxLength
         }
+        
         return true
     }
 } //End of extension

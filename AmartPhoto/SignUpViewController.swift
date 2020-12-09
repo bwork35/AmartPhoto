@@ -17,7 +17,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var continueButton: AmartButton!
     
     //MARK: - Properties
-//    var userID: String?
     var firstNameIsEmpty = true
     var lastNameIsEmpty = true
     var emailIsEmpty = true
@@ -47,7 +46,6 @@ class SignUpViewController: UIViewController {
         UserController.shared.authUser(email: email, password: password) { (result) in
             switch result {
             case .success(let id):
-//                self.userID = id
                 self.presentSignUpContinuedVC(id: id)
             case .failure(_):
                 print("failure")
@@ -95,82 +93,19 @@ class SignUpViewController: UIViewController {
         self.view.frame.origin.y = 0
     }
 
-    //MARK: - Navigation
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let firstName = firstNameTextField.text, !firstName.isEmpty else {return}
-//        guard let lastName = lastNameTextField.text, !lastName.isEmpty else {return}
-//        guard let email = emailTextField.text, !email.isEmpty else {return}
-//        guard let password = passwordTextField.text, !password.isEmpty else {return}
-////        guard let userID = userID else {return}
-//
-//        if segue.identifier == "signUpToSignUpContinued" {
-//            guard let destination = segue.destination as? SignUpContinuedViewController else {return}
-//            destination.firstName = firstName
-//            destination.lastName = lastName
-//            destination.email = email
-//            destination.password = password
-////            destination.userID = userID
-//        }
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
+    */
 
 } //End of class
 
 extension SignUpViewController: UITextFieldDelegate {
-    
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        if textField == firstNameTextField {
-//            guard let text = textField.text else {return}
-//            if text.isEmpty {
-//                firstNameIsEmpty = true
-//            } else {
-//                firstNameIsEmpty = false
-//            }
-//        } else if textField == lastNameTextField {
-//            guard let text = textField.text else {return}
-//            if text.isEmpty {
-//                lastNameIsEmpty = true
-//            } else {
-//                lastNameIsEmpty = false
-//            }
-//        } else if textField == emailTextField {
-//            guard let text = textField.text else {return}
-//            if text.isEmpty {
-//                emailIsEmpty = true
-//            } else {
-//                emailIsEmpty = false
-//            }
-//        } else if textField == passwordTextField {
-//            guard let text = textField.text else {return}
-//            if text.isEmpty {
-//                passwordIsEmpty = true
-//            } else {
-//                passwordIsEmpty = false
-//            }
-//        }
-//
-//        if (firstNameIsEmpty ==  false) && (lastNameIsEmpty ==  false) && (emailIsEmpty ==  false) && (passwordIsEmpty == false) {
-//            continueButton.isEnabled = true
-//        } else {
-//            continueButton.isEnabled = false
-//        }
-        
-        
-//        switch textField {
-//        case firstNameTextField:
-//            print("firstName")
-//        case lastNameTextField:
-//            print("lastName")
-//        case emailTextField:
-//            print("email")
-//        case passwordTextField:
-//            print("password")
-//        default:
-//            print("uh oh")
-//        }
-//
-//
-//    }
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         switch textField {
         case firstNameTextField:

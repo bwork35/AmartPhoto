@@ -88,9 +88,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let profile = user.image {
             profileImage.image = profile
         }
-//        if user.role == .admin {
-//            brokerageView.isHidden = true
-//        }
         numProjectsCompletedLabel.text = "\(TransactionController.shared.confirmedTransactions.count)"
         if let userImage = user.image {
             profileImage.image = userImage

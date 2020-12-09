@@ -64,15 +64,9 @@ class CreateTransactionContinuedViewController: UIViewController, UICollectionVi
                 notes = notesField
             }
         }
-        let tod1 = timeOne.rawValue
-        let tod2 = timeTwo.rawValue
-        let status = "Pending"
-        
-        //        TransactionController.shared.createTransaction(client: client, address: address, city: city, state: state, zip: zipcode, sqFeet: sqft, isVacant: homeIsVacant, homeOwnerPhone: phoneNumber, dateOne: dateOne, timeOne: timeOne, dateTwo: dateTwo, timeTwo: timeTwo, package: package, addOns: addOns, notes: notes)
-        
-//        TransactionController.shared.saveTransaction(id: "", status: status, client: client, address: address, city: city, state: state, zip: zipcode, sqFeet: sqft, isVacant: homeIsVacant, homeOwnerPhone: phoneNumber, dateOne: dateOne, timeOne: tod1, dateTwo: dateTwo, timeTwo: tod2, package: package, addOns: addOns, notes: notes) {
-//            self.navigationController?.popToRootViewController(animated: true)
-//        }
+//        let tod1 = timeOne.rawValue
+//        let tod2 = timeTwo.rawValue
+//        let status = "Pending"
         
         TransactionController.shared.createTransaction(client: client, address: address, city: city, state: state, zip: zipcode, sqFeet: sqft, isVacant: homeIsVacant, homeOwnerPhone: phoneNumber, dateOne: dateOne, timeOne: timeOne, dateTwo: dateTwo, timeTwo: timeTwo, package: package, addOns: addOns, notes: notes) { (result) in
             switch result {
@@ -84,7 +78,6 @@ class CreateTransactionContinuedViewController: UIViewController, UICollectionVi
                 print("Error creating Transaction.")
             }
         }
-        
     }
     
     //MARK: - Helper Methods

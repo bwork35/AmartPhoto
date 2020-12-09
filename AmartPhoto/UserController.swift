@@ -60,6 +60,7 @@ class UserController {
                 var accountType: User.Role = .client
                 if role == "Administrator" {
                     accountType = .admin
+                    self.subscribeAdmin()
                 }
                 self.createUser(id: id, firstName: firstName, lastName: lastName, email: email, institution: institution, phoneNumber: phoneNumber, role: accountType)
                 completion()
@@ -161,5 +162,16 @@ class UserController {
     func deleteUser() {
         currentUser = nil
     }
+    
+    //MARK: - Subscribe
+    func subscribeAdmin() {
+        Messaging.messaging().subscribe(toTopic: "admin") { error in
+            if let error = error {
+                print("Error subscribing to admin topic -- \(error) -- \(error.localizedDescription)")
+            } else {
+                print("Subscribed to admin topic")
+            }
+        }
+    } 
     
 } //End of class
