@@ -107,14 +107,15 @@ class UserController {
         }
     }
     
-    func signInUser(email: String, password: String, completion: @escaping () -> Void) {
+    func signInUser(email: String, password: String, completion: @escaping (Result<Bool, Error>) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 print("There was an error signing in a user -- \(error) -- \(error.localizedDescription)")
+                completion(.failure(error))
             } else {
                 print("Successfully signed in user.")
             }
-            completion()
+            completion(.success(true))
         }
     }
     

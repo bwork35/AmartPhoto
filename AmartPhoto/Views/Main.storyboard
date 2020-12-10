@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="14F-U6-rCl">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -135,6 +136,12 @@
                                     <action selector="continueButtonTapped:" destination="gy0-x8-stf" eventType="touchUpInside" id="H84-bC-Goi"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbN-en-kgZ">
+                                <rect key="frame" x="189.5" y="540" width="35.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TXb-Cw-3eb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -148,6 +155,7 @@
                             <constraint firstItem="9pJ-Vg-aeb" firstAttribute="top" secondItem="vN7-LV-fDV" secondAttribute="bottom" constant="20" id="72o-ty-TM4"/>
                             <constraint firstItem="U6q-74-dLf" firstAttribute="leading" secondItem="Qk6-NJ-Hwl" secondAttribute="leading" id="7zm-4i-xqH"/>
                             <constraint firstItem="Qk6-NJ-Hwl" firstAttribute="width" secondItem="Mud-HG-vRs" secondAttribute="width" multiplier="0.75" id="8GV-ea-1vH"/>
+                            <constraint firstItem="bbN-en-kgZ" firstAttribute="top" secondItem="Qk6-NJ-Hwl" secondAttribute="bottom" constant="15" id="Gek-Jk-Gze"/>
                             <constraint firstItem="Qk6-NJ-Hwl" firstAttribute="centerX" secondItem="TXb-Cw-3eb" secondAttribute="centerX" id="IH1-UP-Mh6"/>
                             <constraint firstItem="H6h-Qe-9n7" firstAttribute="width" secondItem="Mud-HG-vRs" secondAttribute="width" multiplier="0.75" id="Ol5-kb-jZQ"/>
                             <constraint firstItem="hD4-Om-qwy" firstAttribute="centerX" secondItem="TXb-Cw-3eb" secondAttribute="centerX" id="Web-E9-Ee3"/>
@@ -159,6 +167,7 @@
                             <constraint firstItem="vN7-LV-fDV" firstAttribute="centerX" secondItem="TXb-Cw-3eb" secondAttribute="centerX" id="fv1-6m-hBt"/>
                             <constraint firstItem="O5n-8l-xqT" firstAttribute="top" secondItem="TXb-Cw-3eb" secondAttribute="top" constant="55" id="gEa-e8-3z7"/>
                             <constraint firstItem="hD4-Om-qwy" firstAttribute="width" secondItem="Mud-HG-vRs" secondAttribute="width" multiplier="0.6" id="hrH-7b-MGN"/>
+                            <constraint firstItem="bbN-en-kgZ" firstAttribute="centerX" secondItem="TXb-Cw-3eb" secondAttribute="centerX" id="khZ-Pn-1bV"/>
                             <constraint firstItem="gWf-9c-gii" firstAttribute="leading" secondItem="vN7-LV-fDV" secondAttribute="leading" id="lb7-dU-pw6"/>
                             <constraint firstItem="H6h-Qe-9n7" firstAttribute="top" secondItem="9pJ-Vg-aeb" secondAttribute="bottom" constant="5" id="qIe-ge-4gd"/>
                             <constraint firstItem="Nxp-19-dCU" firstAttribute="centerX" secondItem="TXb-Cw-3eb" secondAttribute="centerX" id="rct-UZ-8Zp"/>
@@ -170,6 +179,7 @@
                     <connections>
                         <outlet property="continueButton" destination="hD4-Om-qwy" id="wnr-M7-byX"/>
                         <outlet property="emailTextField" destination="H6h-Qe-9n7" id="ev1-BT-UrP"/>
+                        <outlet property="errorLabel" destination="bbN-en-kgZ" id="vow-bD-xhH"/>
                         <outlet property="firstNameTextField" destination="Nxp-19-dCU" id="RTZ-cS-Hhb"/>
                         <outlet property="lastNameTextField" destination="vN7-LV-fDV" id="gOL-FL-Kc3"/>
                         <outlet property="passwordTextField" destination="Qk6-NJ-Hwl" id="s6A-Ff-JeL"/>
@@ -371,16 +381,25 @@
                                     <action selector="logInButtonTapped:" destination="PPR-CT-Auk" eventType="touchUpInside" id="e0Y-32-xCS"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="**incorrect email and password**" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0B-bF-1FO">
+                                <rect key="frame" x="52" y="534" width="310.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XWX-FU-Eji"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="f0B-bF-1FO" firstAttribute="top" secondItem="5FJ-6c-ZF2" secondAttribute="bottom" constant="15" id="1di-go-k2c"/>
                             <constraint firstItem="5FJ-6c-ZF2" firstAttribute="centerX" secondItem="XWX-FU-Eji" secondAttribute="centerX" id="4iE-XS-p02"/>
+                            <constraint firstItem="f0B-bF-1FO" firstAttribute="centerX" secondItem="XWX-FU-Eji" secondAttribute="centerX" id="5PO-ds-3YN"/>
                             <constraint firstItem="5xP-kd-9Xd" firstAttribute="leading" secondItem="5FJ-6c-ZF2" secondAttribute="leading" id="BY9-ID-XXP"/>
                             <constraint firstItem="jCH-0U-1fy" firstAttribute="centerX" secondItem="XWX-FU-Eji" secondAttribute="centerX" id="BoZ-Oq-lik"/>
                             <constraint firstItem="jCH-0U-1fy" firstAttribute="width" secondItem="M4H-l4-a1O" secondAttribute="width" multiplier="0.6" id="H9I-aP-wAw"/>
                             <constraint firstItem="Mxl-CC-GTU" firstAttribute="centerY" secondItem="XWX-FU-Eji" secondAttribute="centerY" multiplier="0.55" id="HfW-iz-prT"/>
                             <constraint firstItem="Udl-qL-mHg" firstAttribute="top" secondItem="Mxl-CC-GTU" secondAttribute="bottom" constant="35" id="Jgu-YD-4QR"/>
+                            <constraint firstItem="f0B-bF-1FO" firstAttribute="width" secondItem="M4H-l4-a1O" secondAttribute="width" multiplier="0.75" id="LXc-Ne-8Jr"/>
                             <constraint firstItem="Ooe-Mh-aVc" firstAttribute="width" secondItem="M4H-l4-a1O" secondAttribute="width" multiplier="0.7" id="QZX-AB-HpS"/>
                             <constraint firstItem="5FJ-6c-ZF2" firstAttribute="width" secondItem="M4H-l4-a1O" secondAttribute="width" multiplier="0.7" id="ZPM-Cs-kx3"/>
                             <constraint firstItem="Mxl-CC-GTU" firstAttribute="centerX" secondItem="XWX-FU-Eji" secondAttribute="centerX" id="eQP-2N-aZj"/>
@@ -396,6 +415,7 @@
                     <navigationItem key="navigationItem" id="8t5-y9-ziD"/>
                     <connections>
                         <outlet property="emailTextField" destination="Ooe-Mh-aVc" id="VSR-DB-sz4"/>
+                        <outlet property="incorrectLabel" destination="f0B-bF-1FO" id="a6h-Gv-kt6"/>
                         <outlet property="passwordTextField" destination="5FJ-6c-ZF2" id="2tw-Os-u6X"/>
                     </connections>
                 </viewController>
@@ -427,6 +447,9 @@
         <image name="house" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

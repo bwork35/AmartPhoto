@@ -15,6 +15,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var continueButton: AmartButton!
+    @IBOutlet weak var errorLabel: UILabel!
     
     //MARK: - Properties
     var firstNameIsEmpty = true
@@ -26,6 +27,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
+        errorLabel.isHidden = true
         continueButton.isEnabled = false
         
         firstNameTextField.delegate = self
@@ -47,8 +49,9 @@ class SignUpViewController: UIViewController {
             switch result {
             case .success(let id):
                 self.presentSignUpContinuedVC(id: id)
-            case .failure(_):
-                print("failure")
+            case .failure(let error):
+                self.errorLabel.text = error.localizedDescription
+                self.errorLabel.isHidden = false
             }
         }
     }
