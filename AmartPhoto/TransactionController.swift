@@ -173,9 +173,6 @@ class TransactionController {
     }
     
     //Delete
-    func deleteTransaction(transaction: Transaction) {
-        guard let index = transactions.firstIndex(of: transaction) else {return}
-        transactions.remove(at: index)
-    }
+    
     
 } //End of class

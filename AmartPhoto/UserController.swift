@@ -160,9 +160,7 @@ class UserController {
     }
     
     //Delete
-    func deleteUser() {
-        currentUser = nil
-    }
+    
     
     //MARK: - Subscribe
     func subscribeAdmin() {

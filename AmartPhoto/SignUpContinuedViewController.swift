@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpContinuedViewController: UIViewController, UITextFieldDelegate {
+class SignUpContinuedViewController: UIViewController {
 
     //MARK: - Outlets
     @IBOutlet weak var accountTypeSegmentedControl: UISegmentedControl!
@@ -28,11 +28,13 @@ class SignUpContinuedViewController: UIViewController, UITextFieldDelegate {
         }
     }
     var role: User.Role = .client
+    var phoneNumberIsEmpty = true 
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
+        signUpButton.isEnabled = false
         phoneNumberTextField.delegate = self
         adminInfoView.isHidden = true
     }
@@ -44,10 +46,16 @@ class SignUpContinuedViewController: UIViewController, UITextFieldDelegate {
             role = .admin
             clientInfoView.isHidden = true
             adminInfoView.isHidden = false
+            signUpButton.isEnabled = true
         default:
             role = .client
             clientInfoView.isHidden = false
             adminInfoView.isHidden = true
+            if phoneNumberIsEmpty {
+                signUpButton.isEnabled = false
+            } else {
+                signUpButton.isEnabled = true
+            }
         }
     }
     
@@ -101,7 +109,39 @@ class SignUpContinuedViewController: UIViewController, UITextFieldDelegate {
         self.view.frame.origin.y = 0
     }
     
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+} //End of class
+
+extension SignUpContinuedViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        switch textField {
+        case phoneNumberTextField:
+            guard let text = textField.text else {return false}
+            if (string == "") || (text.count < 11) {
+                phoneNumberIsEmpty = true
+            } else {
+                phoneNumberIsEmpty = false
+            }
+        default:
+            break
+        }
+        
+        if (phoneNumberIsEmpty ==  false) {
+            signUpButton.isEnabled = true
+        } else {
+            signUpButton.isEnabled = false
+        }
+        
         if textField == phoneNumberTextField {
             var strText: String? = textField.text
             if strText == nil {
@@ -119,17 +159,7 @@ class SignUpContinuedViewController: UIViewController, UITextFieldDelegate {
             let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
             return newString.length <= maxLength
         }
+        
         return true
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-} //End of class
+} //End of extension 

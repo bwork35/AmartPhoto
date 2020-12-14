@@ -21,6 +21,7 @@ class CreateTransactionViewController: UIViewController {
     @IBOutlet weak var preferredDateTimeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var secondaryDateDatePicker: UIDatePicker!
     @IBOutlet weak var secondaryDateTimeSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var requiredLabel: UILabel!
     @IBOutlet weak var continueButton: UIButton!
     
     //MARK: - Properties
@@ -31,7 +32,7 @@ class CreateTransactionViewController: UIViewController {
     var cityIsEmpty = true
     var stateIsEmpty = true
     var zipcodeIsEmpty = true
-    var sqftIsEmpty = true
+    var phoneNumberIsEmpty = true
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
@@ -55,8 +56,19 @@ class CreateTransactionViewController: UIViewController {
         switch vacantSegmentedControl.selectedSegmentIndex {
         case 1:
             isVacant = true
+            requiredLabel.isHidden = true
+            phoneNumberIsEmpty = false
+            checkFields()
         default:
             isVacant = false
+            requiredLabel.isHidden = false
+            guard let phoneNumber = phoneNumberTextField.text else {return}
+            if phoneNumber.count < 12 {
+                phoneNumberIsEmpty = true
+            } else {
+                phoneNumberIsEmpty = false
+            }
+            checkFields()
         }
     }
     
@@ -104,6 +116,14 @@ class CreateTransactionViewController: UIViewController {
     
     @objc func keyboardWillHide(notification: NSNotification) {
         self.view.frame.origin.y = 0
+    }
+    
+    func checkFields() {
+        if (addressIsEmpty ==  false) && (cityIsEmpty ==  false) && (stateIsEmpty ==  false) && (zipcodeIsEmpty == false) && (phoneNumberIsEmpty == false) {
+            continueButton.isEnabled = true
+        } else {
+            continueButton.isEnabled = false
+        }
     }
     
     // MARK: - Navigation
@@ -168,22 +188,20 @@ extension CreateTransactionViewController: UITextFieldDelegate {
             } else {
                 zipcodeIsEmpty = false
             }
-        case sqftTextField:
-            guard let text = textField.text else {return false}
-            if string == "" && text.count == 1 {
-                sqftIsEmpty = true
-            } else {
-                sqftIsEmpty = false
+        case phoneNumberTextField:
+            if vacantSegmentedControl.selectedSegmentIndex == 0 {
+                guard let text = textField.text else {return false}
+                if (string == "") || (text.count < 11) {
+                    phoneNumberIsEmpty = true
+                } else {
+                    phoneNumberIsEmpty = false
+                }
             }
         default:
             break
         }
         
-        if (addressIsEmpty ==  false) && (cityIsEmpty ==  false) && (stateIsEmpty ==  false) && (zipcodeIsEmpty == false) && (sqftIsEmpty == false) {
-            continueButton.isEnabled = true
-        } else {
-            continueButton.isEnabled = false
-        }
+        checkFields()
         
         if textField == phoneNumberTextField {
             var strText: String? = textField.text

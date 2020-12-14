@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vxa-GS-AmC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -851,9 +852,16 @@
                                                     <action selector="secondaryDateSegmentedControlChanged:" destination="N0k-uG-aNP" eventType="valueChanged" id="kCb-Cd-p2v"/>
                                                 </connections>
                                             </segmentedControl>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ Required" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7IV-0t-bWq">
+                                                <rect key="frame" x="248" y="483.5" width="75.5" height="18"/>
+                                                <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="7IV-0t-bWq" firstAttribute="centerY" secondItem="ObH-tm-URF" secondAttribute="centerY" id="0FQ-uR-7nv"/>
                                             <constraint firstItem="Mhj-gN-RMO" firstAttribute="leading" secondItem="aOV-67-Xmh" secondAttribute="leading" constant="20" id="0Pc-0d-heK"/>
                                             <constraint firstItem="OTz-ss-Kck" firstAttribute="leading" secondItem="aOV-67-Xmh" secondAttribute="leading" constant="20" id="0yY-Ra-ZWy"/>
                                             <constraint firstItem="LHh-y1-jdC" firstAttribute="centerX" secondItem="aOV-67-Xmh" secondAttribute="centerX" id="1Il-5G-ceC"/>
@@ -898,6 +906,7 @@
                                             <constraint firstItem="tU8-Um-ybK" firstAttribute="top" secondItem="eg7-Fh-ysr" secondAttribute="top" id="e5e-Sg-zJG"/>
                                             <constraint firstItem="wJB-WT-vBT" firstAttribute="leading" secondItem="aOV-67-Xmh" secondAttribute="leading" constant="20" id="e9e-9P-95i"/>
                                             <constraint firstItem="ObH-tm-URF" firstAttribute="leading" secondItem="aOV-67-Xmh" secondAttribute="leading" constant="20" id="eDG-cj-kYy"/>
+                                            <constraint firstItem="7IV-0t-bWq" firstAttribute="leading" secondItem="ObH-tm-URF" secondAttribute="trailing" constant="15" id="hEC-AL-qYF"/>
                                             <constraint firstItem="U0h-Gj-VZX" firstAttribute="leading" secondItem="aOV-67-Xmh" secondAttribute="leading" constant="10" id="hu8-lu-aF7"/>
                                             <constraint firstItem="InE-4P-EZm" firstAttribute="width" secondItem="aOV-67-Xmh" secondAttribute="width" multiplier="0.9" id="il7-Jf-2dd"/>
                                             <constraint firstItem="U0h-Gj-VZX" firstAttribute="width" secondItem="aOV-67-Xmh" secondAttribute="width" multiplier="0.35" id="itl-EE-iQ3"/>
@@ -943,6 +952,7 @@
                         <outlet property="phoneNumberTextField" destination="InE-4P-EZm" id="5gF-sb-rBN"/>
                         <outlet property="preferredDateDatePicker" destination="U0h-Gj-VZX" id="ZNk-a8-0YY"/>
                         <outlet property="preferredDateTimeSegmentedControl" destination="iDE-Y7-Llj" id="zWb-p5-yiX"/>
+                        <outlet property="requiredLabel" destination="7IV-0t-bWq" id="RQF-uI-8OK"/>
                         <outlet property="secondaryDateDatePicker" destination="eg7-Fh-ysr" id="svu-R4-Ad5"/>
                         <outlet property="secondaryDateTimeSegmentedControl" destination="tU8-Um-ybK" id="P3C-Np-dyj"/>
                         <outlet property="sqftTextField" destination="LHh-y1-jdC" id="tsp-xY-mX7"/>
@@ -1305,6 +1315,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="vZ2-Zz-LdL"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Pit-bF-uGw" firstAttribute="top" secondItem="s9C-5z-DWs" secondAttribute="top" constant="30" id="38p-HR-sKt"/>

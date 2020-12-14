@@ -63,6 +63,6 @@ class Transaction {
 
 extension Transaction: Equatable {
     static func == (lhs: Transaction, rhs: Transaction) -> Bool {
-        return lhs.id == rhs.id && lhs.status == rhs.status && lhs.client == rhs.client && lhs.address == rhs.address && lhs.city == rhs.city && lhs.state == rhs.state && lhs.zip == rhs.zip && lhs.sqFeet == rhs.sqFeet && lhs.isVacant == rhs.isVacant && lhs.homeOwnerPhone == rhs.homeOwnerPhone && lhs.dateOne == rhs.dateOne && lhs.timeOne == rhs.timeOne && lhs.dateTwo == rhs.dateTwo && lhs.timeTwo == rhs.timeTwo && lhs.package == rhs.package && lhs.addOns == rhs.addOns && lhs.notes == rhs.notes
+        return lhs.id == rhs.id && lhs.client == rhs.client && lhs.address == rhs.address
     }
 } //End of extension
