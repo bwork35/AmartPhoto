@@ -102,6 +102,15 @@ class CreateTransactionViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(CreateTransactionContinuedViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(CreateTransactionContinuedViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        vacantSegmentedControl.setTitleTextAttributes(titleTextAttributes, for: .normal)
+        vacantSegmentedControl.setTitleTextAttributes(titleTextAttributes, for: .selected)
+        preferredDateTimeSegmentedControl.setTitleTextAttributes(titleTextAttributes, for: .normal)
+        preferredDateTimeSegmentedControl.setTitleTextAttributes(titleTextAttributes, for: .selected)
+        secondaryDateTimeSegmentedControl.setTitleTextAttributes(titleTextAttributes, for: .normal)
+        secondaryDateTimeSegmentedControl.setTitleTextAttributes(titleTextAttributes, for: .selected)
+        
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {

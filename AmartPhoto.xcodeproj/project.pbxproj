@@ -19,6 +19,7 @@
 		937E0003257365A200718E2F /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E0002257365A100718E2F /* InformationViewController.swift */; };
 		937E002D2575F87C00718E2F /* Notification.apns in Resources */ = {isa = PBXBuildFile; fileRef = 937E002C2575F87C00718E2F /* Notification.apns */; };
 		937EFFFB257346C100718E2F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937EFFFA257346C100718E2F /* MenuViewController.swift */; };
+		9387866B2589527B00214568 /* AmartTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9387866A2589527B00214568 /* AmartTextField.swift */; };
 		93A3BA102548E6AF0005257A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA0F2548E6AF0005257A /* AppDelegate.swift */; };
 		93A3BA122548E6AF0005257A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3BA112548E6AF0005257A /* SceneDelegate.swift */; };
 		93A3BA172548E6AF0005257A /* Amart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A3BA152548E6AF0005257A /* Amart.storyboard */; };
@@ -79,6 +80,7 @@
 		937E002C2575F87C00718E2F /* Notification.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = Notification.apns; sourceTree = "<group>"; };
 		937EFFF2256E277400718E2F /* AmartPhoto.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AmartPhoto.entitlements; sourceTree = "<group>"; };
 		937EFFFA257346C100718E2F /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		9387866A2589527B00214568 /* AmartTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmartTextField.swift; sourceTree = "<group>"; };
 		93A3BA0C2548E6AF0005257A /* AmartPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmartPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A3BA0F2548E6AF0005257A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93A3BA112548E6AF0005257A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +168,14 @@
 				93C7954625535DD40014DFD0 /* AddOnCollectionViewCell.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		938786692589526000214568 /* CustomTextFields */ = {
+			isa = PBXGroup;
+			children = (
+				9387866A2589527B00214568 /* AmartTextField.swift */,
+			);
+			path = CustomTextFields;
 			sourceTree = "<group>";
 		};
 		93A3BA032548E6AF0005257A = {
@@ -305,6 +315,7 @@
 		93C7956C255504250014DFD0 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				938786692589526000214568 /* CustomTextFields */,
 				93C7956D2555046E0014DFD0 /* CustomButtons */,
 			);
 			path = CustomUI;
@@ -580,6 +591,7 @@
 				93C795192552345E0014DFD0 /* UserController.swift in Sources */,
 				93C79577255505940014DFD0 /* LogInViewController.swift in Sources */,
 				93C79538255355930014DFD0 /* Packages.swift in Sources */,
+				9387866B2589527B00214568 /* AmartTextField.swift in Sources */,
 				9320AA91254B691C00FA2E57 /* ProfileViewController.swift in Sources */,
 				93C61418255B772400D7ECEC /* StyleGuide.swift in Sources */,
 				937E0003257365A200718E2F /* InformationViewController.swift in Sources */,

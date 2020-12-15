@@ -14,6 +14,9 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var plusButton: UIBarButtonItem!
     
     //MARK: - Properties
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .lightContent
+//    }
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
@@ -35,6 +38,13 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
             plusButton.isEnabled = false
             plusButton.tintColor = .clear
         }
+//        self.tabBarController?.tabBar.layer.borderWidth = 0.2
+//        self.tabBarController?.tabBar.layer.borderColor = UIColor.black.cgColor
+//        self.tabBarController?.tabBar.clipsToBounds = true
+//
+//        self.navigationController?.navigationBar.layer.borderWidth = 0.2
+//        self.navigationController?.navigationBar.layer.borderColor = UIColor.black.cgColor
+//        self.navigationController?.navigationBar.clipsToBounds = true
     }
     
     func fetchTransactions() {

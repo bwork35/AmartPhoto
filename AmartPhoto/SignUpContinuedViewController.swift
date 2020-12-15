@@ -91,6 +91,10 @@ class SignUpContinuedViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(CreateTransactionContinuedViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(CreateTransactionContinuedViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        accountTypeSegmentedControl.setTitleTextAttributes(titleTextAttributes, for: .normal)
+        accountTypeSegmentedControl.setTitleTextAttributes(titleTextAttributes, for: .selected)
     }
     
     func presentTransactionListVC() {
