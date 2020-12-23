@@ -14,11 +14,18 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var incorrectLabel: UILabel!
     
+    //MARK: - Properties
+    
+    
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
         incorrectLabel.isHidden = true
+        
+//        if #available(iOS 13.0, *) {
+//            navigationController?.navigationBar.overrideUserInterfaceStyle = .light
+//         }
     }
     
     //MARK: - Actions
