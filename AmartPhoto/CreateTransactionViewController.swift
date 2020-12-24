@@ -143,8 +143,16 @@ class CreateTransactionViewController: UIViewController {
             guard let city = cityTextField.text, !city.isEmpty else {return}
             guard let state = stateTextField.text, !state.isEmpty else {return}
             guard let zipcode = zipcodeTextField.text, !zipcode.isEmpty else {return}
-            guard let sqft = sqftTextField.text, !sqft.isEmpty else {return}
-            guard let phoneNumber = phoneNumberTextField.text, !phoneNumber.isEmpty else {return}
+            var sqfoot = " "
+            if let sqft = sqftTextField.text {
+                sqfoot = sqft
+            }
+            var number = " "
+            if let phoneNumber = phoneNumberTextField.text {
+                number = phoneNumber
+            }
+//            guard let phoneNumber = phoneNumberTextField.text, !phoneNumber.isEmpty else {return}
+            
             let homeIsVacant = self.isVacant
             let dateOne = preferredDateDatePicker.date.dateAsString()
             let timeOne = self.preferredTime
@@ -155,8 +163,8 @@ class CreateTransactionViewController: UIViewController {
             destination.city = city
             destination.state = state
             destination.zipcode = zipcode
-            destination.sqft = sqft
-            destination.phoneNumber = phoneNumber
+            destination.sqft = sqfoot
+            destination.phoneNumber = number
             destination.homeIsVacant = homeIsVacant
             destination.dateOne = dateOne
             destination.timeOne = timeOne

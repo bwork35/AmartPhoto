@@ -49,8 +49,14 @@ class CreateTransactionContinuedViewController: UIViewController, UICollectionVi
         guard let city = city else {return}
         guard let state = state else {return}
         guard let zipcode = zipcode else {return}
-        guard let sqft = sqft else {return}
-        guard let phoneNumber = phoneNumber else {return}
+        var sqfoot = " "
+        if let sqft = sqft {
+            sqfoot = sqft
+        }
+        var number = " "
+        if let phoneNumber = phoneNumber {
+            number = phoneNumber
+        }
         guard let homeIsVacant = homeIsVacant else {return}
         guard let dateOne = dateOne else {return}
         guard let timeOne = timeOne else {return}
@@ -68,7 +74,7 @@ class CreateTransactionContinuedViewController: UIViewController, UICollectionVi
 //        let tod2 = timeTwo.rawValue
 //        let status = "Pending"
         
-        TransactionController.shared.createTransaction(client: client, address: address, city: city, state: state, zip: zipcode, sqFeet: sqft, isVacant: homeIsVacant, homeOwnerPhone: phoneNumber, dateOne: dateOne, timeOne: timeOne, dateTwo: dateTwo, timeTwo: timeTwo, package: package, addOns: addOns, notes: notes) { (result) in
+        TransactionController.shared.createTransaction(client: client, address: address, city: city, state: state, zip: zipcode, sqFeet: sqfoot, isVacant: homeIsVacant, homeOwnerPhone: number, dateOne: dateOne, timeOne: timeOne, dateTwo: dateTwo, timeTwo: timeTwo, package: package, addOns: addOns, notes: notes) { (result) in
             switch result {
             case .success(let transaction):
                 TransactionController.shared.saveTransaction(transaction: transaction) {
